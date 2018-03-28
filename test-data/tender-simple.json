@@ -1,0 +1,515 @@
+{
+  "procurementMethod": "open",
+  "numberOfBids": 2,
+  "awardPeriod": {
+    "startDate": "2016-04-19T14:23:39.983202+03:00",
+    "endDate": "2016-04-20T12:58:46.919222+03:00"
+  },
+  "features": [
+    {
+      "code": "ecf3dfff-937f-43f4-b992-722782c0cf1a",
+      "featureOf": "tenderer",
+      "description": "Ігри та іграшки; атракціони",
+      "enum": [
+        {
+          "description": "Коментар 1",
+          "value": 0,
+          "title": "значення 1"
+        },
+        {
+          "description": "Коментар 2",
+          "value": 0.1,
+          "title": "значення 2"
+        }
+      ],
+      "title": "Показник до закупівлі"
+    },
+    {
+      "code": "46fa4c7f-2ad8-452f-ae26-929e77e86130",
+      "description": "Машини і процеси поліграфічного виробництва",
+      "title": "Показник до предмету закупівлі",
+      "enum": [
+        {
+          "description": "Коментар 1",
+          "value": 0,
+          "title": "значення 1"
+        },
+        {
+          "description": "Коментар 2",
+          "value": 0.1,
+          "title": "значення 2"
+        }
+      ],
+      "relatedItem": "9d18a4e24b1947ef8747fa07511e5fd3",
+      "featureOf": "item"
+    }
+  ],
+  "complaintPeriod": {
+    "startDate": "2016-04-19T12:09:04.284659+03:00",
+    "endDate": "2016-04-19T12:29:00+03:00"
+  },
+  "auctionUrl": "https://auction-sandbox.openprocurement.org/tenders/15ed90e06ae945af848ee3b08e0ec1af",
+  "enquiryPeriod": {
+    "startDate": "2016-04-19T12:09:04.284659+03:00",
+    "clarificationsUntil": "2016-04-19T12:27:30+03:00",
+    "endDate": "2016-04-19T12:26:00+03:00"
+  },
+  "submissionMethod": "electronicAuction",
+  "procuringEntity": {
+    "kind": "general",
+    "name": "ЙогаСофт1",
+    "address": {
+      "postalCode": "02134",
+      "countryName": "УКРАЇНА",
+      "streetAddress": "вул. Хрещатик, буд.1, офіс 777",
+      "region": "Вiнницька область",
+      "locality": "ГЛИНЯНКА"
+    },
+    "contactPoint": {
+      "telephone": "+380503341003",
+      "faxNumber": "+380503341003",
+      "name": "Бордіян Артем Ігорович",
+      "email": "PBuser1@i.ua"
+    },
+    "identifier": {
+      "scheme": "UA-EDR",
+      "legalName_en": "ротавпротпаро",
+      "id": "0065475395",
+      "legalName": "ДП \"ЙогаСофт1\""
+    },
+    "name_en": "пропвотпа"
+  },
+  "owner": "public-bid.com.ua",
+  "id": "15ed90e06ae945af848ee3b08e0ec1af",
+  "description": "Ігри та іграшки; атракціони",
+  "documents": [
+    {
+      "description": "Інформація для потенційних постачальників, що описує цілі договору (наприклад, товари та послуги, які будуть закуплені) і процес торгів.",
+      "format": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "url": "https://public.docs-sandbox.openprocurement.org/get/3437c006b9a6457c88a14b7319050118?Prefix=15ed90e06ae945af848ee3b08e0ec1af%2F4e587a0222d544f282eb8fed1fc56895&KeyID=1331dc52&Signature=YfJJAZtdGMqgWWW3elZpssQGZxaRXhSKikwSzDzq7vF6zHfWVWZ5xpPfqfKSZnvWf4FrJQGM%252B6IZo5FpWhRwDQ%253D%253D",
+      "title": "Документ Microsoft Word.docx",
+      "documentOf": "tender",
+      "datePublished": "2016-04-19T12:07:08.270326+03:00",
+      "documentType": "biddingDocuments",
+      "dateModified": "2016-04-19T12:07:08.270349+03:00",
+      "id": "4e587a0222d544f282eb8fed1fc56895"
+    },
+    {
+      "format": "text/plain",
+      "url": "https://public.docs-sandbox.openprocurement.org/get/45749177a8a448dea69d1aff849913a0?Prefix=15ed90e06ae945af848ee3b08e0ec1af%2Fe0ff633edb464969a6967b89439f1f79&KeyID=1331dc52&Signature=zUQv9P7ek3pU05pS90OS6pcD3gw79r3CxCLF59k0HG1V9tLOXlgKLVIeanjz9NSc7KdKmYM1mJDDgCW1tpGkCA%253D%253D",
+      "title": "audit_15ed90e06ae945af848ee3b08e0ec1af.yaml",
+      "documentOf": "tender",
+      "datePublished": "2016-04-19T14:23:39.372368+03:00",
+      "dateModified": "2016-04-19T14:23:39.372396+03:00",
+      "id": "e0ff633edb464969a6967b89439f1f79"
+    },
+    {
+      "format": "text/plain",
+      "url": "https://public.docs-sandbox.openprocurement.org/get/d5941663b4254ed592154573aea79ce7?Prefix=15ed90e06ae945af848ee3b08e0ec1af%2Fe0ff633edb464969a6967b89439f1f79&KeyID=1331dc52&Signature=EYeW1a%252BgtovemBsUYFy9SXHhm6DkBckj2GB6jQ3WyVYKv6BoP4VRTinvY7rZUfh7ZsXgsuhCkWAgr2NxUPG4Aw%253D%253D",
+      "title": "audit_15ed90e06ae945af848ee3b08e0ec1af.yaml",
+      "documentOf": "tender",
+      "datePublished": "2016-04-19T14:23:39.372368+03:00",
+      "dateModified": "2016-04-19T14:23:40.359860+03:00",
+      "id": "e0ff633edb464969a6967b89439f1f79"
+    }
+  ],
+  "title": "Відкриті торги/безлотовая",
+  "tenderID": "UA-2016-04-19-000014-1",
+  "auctionPeriod": {
+    "startDate": "2016-04-19T14:02:39+03:00",
+    "endDate": "2016-04-19T14:23:39.960341+03:00"
+  },
+  "guarantee": {
+    "currency": "GBP",
+    "amount": 785
+  },
+  "dateModified": "2016-04-20T13:03:47.338744+03:00",
+  "status": "active.awarded",
+  "tenderPeriod": {
+    "startDate": "2016-04-19T12:09:04.284659+03:00",
+    "endDate": "2016-04-19T12:31:00+03:00"
+  },
+  "contracts": [
+    {
+      "status": "pending",
+      "items": [
+        {
+          "description": "Машини і процеси поліграфічного виробництва",
+          "classification": {
+            "scheme": "CPV",
+            "description": "Ляльки",
+            "id": "37510000-6"
+          },
+          "additionalClassifications": [
+            {
+              "scheme": "ДК015",
+              "id": "I.2 11.05.01",
+              "description": "Машини і процеси поліграфічного виробництва"
+            }
+          ],
+          "deliveryLocation": {
+            "latitude": "широта 123",
+            "longitude": "довгота 456"
+          },
+          "deliveryAddress": {
+            "postalCode": "02134",
+            "countryName": "УКРАЇНА",
+            "streetAddress": "вул. Хрещатик, буд.1, офіс 777",
+            "region": "Волинська область",
+            "locality": "УСТИЛУГ"
+          },
+          "deliveryDate": {
+            "startDate": "2016-04-20T00:00:00+03:00",
+            "endDate": "2016-04-30T00:00:00+03:00"
+          },
+          "id": "9d18a4e24b1947ef8747fa07511e5fd3",
+          "unit": {
+            "code": "H87",
+            "name": "\tшт.\t"
+          },
+          "quantity": 789
+        },
+        {
+          "description": "Функціональне (галузеве) машинобудування",
+          "classification": {
+            "scheme": "CPV",
+            "description": "Деталі ляльок чи аксесуари до ляльок",
+            "id": "37512000-0"
+          },
+          "additionalClassifications": [
+            {
+              "scheme": "ДК015",
+              "id": "I.2 11.05",
+              "description": "Функціональне (галузеве) машинобудування"
+            }
+          ],
+          "deliveryLocation": {
+            "latitude": "широта 123",
+            "longitude": "довгота 456"
+          },
+          "deliveryAddress": {
+            "postalCode": "02134",
+            "countryName": "УКРАЇНА",
+            "streetAddress": "вул. Хрещатик, буд.1, офіс 777",
+            "region": "Житомирська область",
+            "locality": "КОРОСТЕНЬ"
+          },
+          "deliveryDate": {
+            "startDate": "2016-04-21T00:00:00+03:00",
+            "endDate": "2016-04-30T00:00:00+03:00"
+          },
+          "id": "c10fb1cfebbf4b658aa70953aba68c3e",
+          "unit": {
+            "code": "MTK",
+            "name": "\tм.кв.\t"
+          },
+          "quantity": 777
+        }
+      ],
+      "suppliers": [
+        {
+          "contactPoint": {
+            "telephone": "+380503341003",
+            "faxNumber": "+380503341003",
+            "name": "Фещенко Денис Володимирович",
+            "email": "PBuser3@i.ua"
+          },
+          "identifier": {
+            "scheme": "UA-EDR",
+            "id": "0159357789",
+            "legalName": "ТОВ \"РушничОК\""
+          },
+          "name": "РушничОК",
+          "address": {
+            "postalCode": "02156",
+            "countryName": "УКРАЇНА",
+            "streetAddress": "просп. Маяковського, 8Б",
+            "region": "м.Київ",
+            "locality": "ДЕСНЯНСЬКИЙ"
+          }
+        }
+      ],
+      "value": {
+        "currency": "UAH",
+        "amount": 6500,
+        "valueAddedTaxIncluded": true
+      },
+      "awardID": "9978e84b2fc34af69cab9ed61234f502",
+      "id": "b9f6016757ba48c5b7e2b5831954efab",
+      "contractID": "UA-2016-04-19-000014-1-11"
+    }
+  ],
+  "procurementMethodDetails": "quick, accelerator=2880",
+  "procurementMethodType": "aboveThresholdUA",
+  "awards": [
+    {
+      "status": "active",
+      "contractPeriod": {
+        "startDate": "2016-04-19T14:23:39.983202+03:00",
+        "endDate": "2016-04-20T12:58:46.919222+03:00"
+      },
+
+      "documents": [
+        {
+          "format": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+          "url": "https://public.docs-sandbox.openprocurement.org/get/ee37544b4ee2432893227620dfda83bc?Prefix=15ed90e06ae945af848ee3b08e0ec1af%2Fadfb54b947fe45ad9b4d981b55cdd2e3&KeyID=1331dc52&Signature=3Nu09%2FN2ZO5GLWxMLG9PxmyhKOZ0yyLMVkaRWmp342S2u%252BR12jA9M17Ot%252BU%252BwVbHU9vT%2FkFlrUprNvzH4sndBQ%253D%253D",
+          "title": "ЦСК которые поддерживаем.docx",
+          "documentOf": "tender",
+          "datePublished": "2016-04-20T12:58:45.654994+03:00",
+          "documentType": "awardNotice",
+          "dateModified": "2016-04-20T12:58:45.655019+03:00",
+          "id": "adfb54b947fe45ad9b4d981b55cdd2e3"
+        }
+      ],
+      "complaintPeriod": {
+        "startDate": "2016-04-19T14:23:39.996362+03:00",
+        "endDate": "2016-04-20T13:03:46.918912+03:00"
+      },
+      "suppliers": [
+        {
+          "contactPoint": {
+            "telephone": "+380503341003",
+            "faxNumber": "+380503341003",
+            "name": "Фещенко Денис Володимирович",
+            "email": "PBuser3@i.ua"
+          },
+          "identifier": {
+            "scheme": "UA-EDR",
+            "id": "0159357789",
+            "legalName": "ТОВ \"РушничОК\""
+          },
+          "name": "РушничОК",
+          "address": {
+            "postalCode": "02156",
+            "countryName": "УКРАЇНА",
+            "streetAddress": "просп. Маяковського, 8Б",
+            "region": "м.Київ",
+            "locality": "ДЕСНЯНСЬКИЙ"
+          }
+        }
+      ],
+      "eligible": true,
+      "bid_id": "eb492a791bcb4572b51f7fcfa3714b72",
+      "value": {
+        "currency": "UAH",
+        "amount": 6500,
+        "valueAddedTaxIncluded": true
+      },
+      "complaints": [
+        {
+          "status": "pending",
+          "description": "Короткий заголовок",
+          "title": "Короткий заголовок",
+          "author": {
+            "contactPoint": {
+              "telephone": "+380636848613",
+              "name": "Аушева Анна Андріївна",
+              "email": "pbuser2@i.ua"
+            },
+            "identifier": {
+              "scheme": "UA-EDR",
+              "id": "4569517536",
+              "legalName": "Килимки"
+            },
+            "name": "Килимки",
+            "address": {
+              "postalCode": "02134",
+              "countryName": "УКРАЇНА",
+              "streetAddress": "вул. Гвардійська, буд.44",
+              "region": "м.Київ",
+              "locality": "ГОЛОСІЇВСЬКИЙ"
+            }
+          },
+          "dateSubmitted": "2016-04-20T13:01:42.839422+03:00",
+          "complaintID": "UA-2016-04-19-000014-1.11",
+          "date": "2016-04-20T13:01:40.168291+03:00",
+          "type": "complaint",
+          "id": "7679d1b2cd7a4d30b13ba4acff31010d"
+        }
+      ],
+      "qualified": true,
+      "date": "2016-04-19T14:23:39.996600+03:00",
+      "id": "9978e84b2fc34af69cab9ed61234f502"
+    }
+  ],
+  "submissionMethodDetails": "quick",
+  "items": [
+    {
+      "description": "Машини і процеси поліграфічного виробництва",
+      "classification": {
+        "scheme": "CPV",
+        "description": "Ляльки",
+        "id": "37510000-6"
+      },
+      "additionalClassifications": [
+        {
+          "scheme": "ДК015",
+          "id": "I.2 11.05.01",
+          "description": "Машини і процеси поліграфічного виробництва"
+        }
+      ],
+      "deliveryLocation": {
+        "latitude": "широта 123",
+        "longitude": "довгота 456"
+      },
+      "deliveryAddress": {
+        "postalCode": "02134",
+        "countryName": "УКРАЇНА",
+        "streetAddress": "вул. Хрещатик, буд.1, офіс 777",
+        "region": "Волинська область",
+        "locality": "УСТИЛУГ"
+      },
+      "deliveryDate": {
+        "startDate": "2016-04-20T00:00:00+03:00",
+        "endDate": "2016-04-30T00:00:00+03:00"
+      },
+      "id": "9d18a4e24b1947ef8747fa07511e5fd3",
+      "unit": {
+        "code": "H87",
+        "name": "\tшт.\t"
+      },
+      "quantity": 789
+    },
+    {
+      "description": "Функціональне (галузеве) машинобудування",
+      "classification": {
+        "scheme": "CPV",
+        "description": "Деталі ляльок чи аксесуари до ляльок",
+        "id": "37512000-0"
+      },
+      "additionalClassifications": [
+        {
+          "scheme": "ДК015",
+          "id": "I.2 11.05",
+          "description": "Функціональне (галузеве) машинобудування"
+        }
+      ],
+      "deliveryLocation": {
+        "latitude": "широта 123",
+        "longitude": "довгота 456"
+      },
+      "deliveryAddress": {
+        "postalCode": "02134",
+        "countryName": "УКРАЇНА",
+        "streetAddress": "вул. Хрещатик, буд.1, офіс 777",
+        "region": "Житомирська область",
+        "locality": "КОРОСТЕНЬ"
+      },
+      "deliveryDate": {
+        "startDate": "2016-04-21T00:00:00+03:00",
+        "endDate": "2016-04-30T00:00:00+03:00"
+      },
+      "id": "c10fb1cfebbf4b658aa70953aba68c3e",
+      "unit": {
+        "code": "MTK",
+        "name": "\tм.кв.\t"
+      },
+      "quantity": 777
+    }
+  ],
+  "bids": [
+    {
+      "status": "active",
+      "parameters": [
+        {
+          "code": "46fa4c7f-2ad8-452f-ae26-929e77e86130",
+          "value": 0.1
+        },
+        {
+          "code": "ecf3dfff-937f-43f4-b992-722782c0cf1a",
+          "value": 0.1
+        }
+      ],
+      "selfEligible": true,
+      "value": {
+        "currency": "UAH",
+        "amount": 6500,
+        "valueAddedTaxIncluded": true
+      },
+      "selfQualified": true,
+      "tenderers": [
+        {
+          "contactPoint": {
+            "telephone": "+380503341003",
+            "faxNumber": "+380503341003",
+            "name": "Фещенко Денис Володимирович",
+            "email": "PBuser3@i.ua"
+          },
+          "identifier": {
+            "scheme": "UA-EDR",
+            "id": "0159357789",
+            "legalName": "ТОВ \"РушничОК\""
+          },
+          "name": "РушничОК",
+          "address": {
+            "postalCode": "02156",
+            "countryName": "УКРАЇНА",
+            "streetAddress": "просп. Маяковського, 8Б",
+            "region": "м.Київ",
+            "locality": "ДЕСНЯНСЬКИЙ"
+          }
+        }
+      ],
+      "date": "2016-04-19T12:12:02.337225+03:00",
+      "id": "eb492a791bcb4572b51f7fcfa3714b72",
+      "participationUrl": "https://auction-sandbox.openprocurement.org/tenders/15ed90e06ae945af848ee3b08e0ec1af/login?bidder_id=eb492a791bcb4572b51f7fcfa3714b72&hash=6ffdc8ce391773cb957fa71978e48dfc060d3ddc"
+    },
+    {
+      "status": "active",
+      "parameters": [
+        {
+          "code": "46fa4c7f-2ad8-452f-ae26-929e77e86130",
+          "value": 0
+        },
+        {
+          "code": "ecf3dfff-937f-43f4-b992-722782c0cf1a",
+          "value": 0
+        }
+      ],
+      "selfEligible": true,
+      "value": {
+        "currency": "UAH",
+        "amount": 7000,
+        "valueAddedTaxIncluded": true
+      },
+      "selfQualified": true,
+      "tenderers": [
+        {
+          "contactPoint": {
+            "telephone": "+380503341003",
+            "faxNumber": "+380503341003",
+            "name": "Аушева Анна Андріївна",
+            "email": "PBuser2@i.ua"
+          },
+          "identifier": {
+            "scheme": "UA-EDR",
+            "id": "4569517536",
+            "legalName": "ВАТ \"Килимки\""
+          },
+          "name": "Килимки",
+          "address": {
+            "postalCode": "02134",
+            "countryName": "УКРАЇНА",
+            "streetAddress": "вул. Гвардійська, буд.44",
+            "region": "м.Київ",
+            "locality": "ГОЛОСІЇВСЬКИЙ"
+          }
+        }
+      ],
+      "date": "2016-04-19T12:12:04.842337+03:00",
+      "id": "d89442350a254f5e9d66145830b0fce5",
+      "participationUrl": "https://auction-sandbox.openprocurement.org/tenders/15ed90e06ae945af848ee3b08e0ec1af/login?bidder_id=d89442350a254f5e9d66145830b0fce5&hash=c80ab97d4b1992a74db04030ae874e2a17c930a2"
+    }
+  ],
+  "value": {
+    "currency": "UAH",
+    "amount": 70000,
+    "valueAddedTaxIncluded": true
+  },
+  "minimalStep": {
+    "currency": "UAH",
+    "amount": 500,
+    "valueAddedTaxIncluded": true
+  },
+  "awardCriteria": "lowestCost"
+}

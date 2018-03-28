@@ -1,0 +1,3 @@
+-e git+git@gitlab.qg:yshalenyk/galleon.git#egg=galleon
+jsonpatch
+pyyaml

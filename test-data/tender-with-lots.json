@@ -1,0 +1,980 @@
+{
+  "procurementMethod": "open",
+  "numberOfBids": 2,
+  "awardPeriod": {
+    "startDate": "2016-04-28T13:41:18.437765+03:00",
+    "endDate": "2016-04-28T14:43:08.478209+03:00"
+  },
+  "features": [
+    {
+      "code": "49018d9c-afb0-475e-aabc-4e248a5afa8b",
+      "featureOf": "tenderer",
+      "description": "Допорогові закупівлі//мультилотовая/завершение/11",
+      "enum": [
+        {
+          "description": "Коментар 1",
+          "value": 0,
+          "title": "Назва 1"
+        },
+        {
+          "description": "Коментар 2",
+          "value": 0.05,
+          "title": "Назва 2"
+        }
+      ],
+      "title": "Показник до закупівлі"
+    },
+    {
+      "code": "6f0ad3a1-d371-4bdf-b468-a473be7723bc",
+      "description": "Ляльки Ляльки Ляльки",
+      "title": "Показник до предмету закупівлі",
+      "enum": [
+        {
+          "description": "Коментар 1",
+          "value": 0,
+          "title": "Назва 1"
+        },
+        {
+          "description": "Коментар 2",
+          "value": 0.1,
+          "title": "Назва 2"
+        }
+      ],
+      "relatedItem": "2dd3d7587b26467396146d054fd62281",
+      "featureOf": "item"
+    },
+    {
+      "code": "4ae0f315-8bf1-4558-a96e-3ccde49a5730",
+      "description": "Ігри та іграшки; атракціони",
+      "title": "Показник до лоту ",
+      "enum": [
+        {
+          "description": "Коментар 1",
+          "value": 0,
+          "title": "Назва 1"
+        },
+        {
+          "description": "Коментар 2",
+          "value": 0.03,
+          "title": "Назва 2"
+        }
+      ],
+      "relatedItem": "cc79f1eeb5a04be4bac04e07f2337b29",
+      "featureOf": "lot"
+    },
+    {
+      "code": "c0682de3-2faf-4a60-ad88-ecbab3b2542a",
+      "description": "Маріонетки",
+      "title": "Показник до предмету лоту",
+      "enum": [
+        {
+          "description": "Коментар 1",
+          "value": 0,
+          "title": "Назва 1"
+        },
+        {
+          "description": "Коментар 2",
+          "value": 0.02,
+          "title": "Назва 2"
+        }
+      ],
+      "relatedItem": "bcb3521b147343c28a74e2eb17a85454",
+      "featureOf": "item"
+    }
+  ],
+  "enquiryPeriod": {
+    "startDate": "2016-04-27T14:46:04.406761+03:00",
+    "endDate": "2016-04-27T15:20:00+03:00"
+  },
+  "submissionMethod": "electronicAuction",
+  "procuringEntity": {
+    "contactPoint": {
+      "telephone": "+380636848613",
+      "faxNumber": "+380636848613",
+      "name": "Ткаченко Соня Антонівна",
+      "email": "PBuser111@gmail.com"
+    },
+    "identifier": {
+      "scheme": "UA-EDR",
+      "id": "6354876546",
+      "legalName": "ДМ СніжОК"
+    },
+    "name": "СніжОК",
+    "kind": "general",
+    "address": {
+      "postalCode": "00101",
+      "countryName": "УКРАЇНА",
+      "streetAddress": "вул. Хрещатик, буд.1, офіс 777",
+      "region": "Тернопiльська область",
+      "locality": "ЗАЛІСЦІ"
+    }
+  },
+  "questions": [
+    {
+      "description": "Питання1",
+      "title": "Заголовок1",
+      "author": {
+        "contactPoint": {
+          "name": "Жиляєв Арсеній Ігорович",
+          "email": "pbuser114@gmail.com"
+        },
+        "identifier": {
+          "scheme": "UA-EDR",
+          "id": "6354987651",
+          "legalName": "ВК Вітерець"
+        },
+        "name": "Вітерець",
+        "address": {
+          "postalCode": "54694",
+          "countryName": "УКРАЇНА",
+          "streetAddress": "вул. Хрещатик, буд.1, офіс 777",
+          "region": "Харкiвська область",
+          "locality": "ПОПІВКА"
+        }
+      },
+      "relatedItem": "0836ecfd845544a5ac806131ad64ad52",
+      "answer": "Відповідь1 1",
+      "date": "2016-04-27T14:52:16.609679+03:00",
+      "id": "e7ae1ff0fe1d4be5bf99fb2bb19c00a9",
+      "questionOf": "item"
+    }
+  ],
+  "owner": "public-bid.com.ua",
+  "id": "8e6f3dd77195472a831f61e3a7eaf7ec",
+  "description": "27.04.16/11",
+  "documents": [
+    {
+      "description": "Інформація для потенційних постачальників, що описує цілі договору (наприклад, товари та послуги, які будуть закуплені) і процес торгів.",
+      "format": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "url": "https://public.docs-sandbox.openprocurement.org/get/c52f18b9dd324c07ab0be96f1b613e8d?Prefix=8e6f3dd77195472a831f61e3a7eaf7ec%2F14e6f730edd648d08796f0bef79d8083&KeyID=1331dc52&Signature=sZ45QY4w%2FsuNOkLjzGc7AwmCMkJ2WMTTMw%252BTZTx41Dy0aOgXLmuIEnb5NtLCnobtlF3v76Y3N3SEnWyqzG7LAQ%253D%253D",
+      "title": "Документ Microsoft Word.docx",
+      "documentOf": "tender",
+      "datePublished": "2016-04-27T14:46:06.139903+03:00",
+      "documentType": "biddingDocuments",
+      "dateModified": "2016-04-27T14:46:06.139927+03:00",
+      "id": "14e6f730edd648d08796f0bef79d8083"
+    },
+    {
+      "description": "Інформація для потенційних постачальників, що описує цілі договору (наприклад, товари та послуги, які будуть закуплені) і процес торгів.",
+      "format": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "url": "https://public.docs-sandbox.openprocurement.org/get/3bfe1873bc304886ac12851051ab926b?Prefix=8e6f3dd77195472a831f61e3a7eaf7ec%2Fb71d17024afb448ea65d7e65c76dc746&KeyID=1331dc52&Signature=V8AztvEwn1cW5QM4nB29w8T%2FavrtAfxn5r3GYG6klmCcGAriIDcS%2FVTmlJJM8o4yc8aNfV1BdN4YSK57uNicAw%253D%253D",
+      "title": "Документ Microsoft Word.docx",
+      "documentOf": "tender",
+      "datePublished": "2016-04-27T14:46:08.142143+03:00",
+      "documentType": "biddingDocuments",
+      "dateModified": "2016-04-27T14:46:08.142167+03:00",
+      "id": "b71d17024afb448ea65d7e65c76dc746"
+    },
+    {
+      "format": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "url": "https://public.docs-sandbox.openprocurement.org/get/0579cd1342814f8595139f916bcd3253?Prefix=8e6f3dd77195472a831f61e3a7eaf7ec%2Fade524d908fe4cf69da11f473e59703a&KeyID=1331dc52&Signature=2LIBXOHB%2Fvhh1ep3WWDjd%252BPTwGyEuVYRWe2RbCF4gpkQ%2FXGZ2dsGwlXjPxa5mohLcHdrLVP9qWMceq8PMKGQCQ%253D%253D",
+      "title": "Microsoft Excel.xlsx",
+      "documentOf": "tender",
+      "datePublished": "2016-04-27T14:52:55.061807+03:00",
+      "dateModified": "2016-04-27T14:52:55.061831+03:00",
+      "id": "ade524d908fe4cf69da11f473e59703a"
+    },
+    {
+      "format": "image/png",
+      "url": "https://public.docs-sandbox.openprocurement.org/get/74598b0ccee84c8ba9336068c3462fc6?Prefix=8e6f3dd77195472a831f61e3a7eaf7ec%2Fbf1be8305bc34738b8ed603b50b04221&KeyID=1331dc52&Signature=EZVI6HIzeUoWH%2FOrwUau8cy5m3OgTUznS5rTcNcpaoGbnRL%2FCAizdbEt%252BA4sQcycRfna%252BPptlsSkP1dbVgBsAg%253D%253D",
+      "title": "05.02.2016(1).png",
+      "documentOf": "tender",
+      "datePublished": "2016-04-27T14:56:30.665482+03:00",
+      "dateModified": "2016-04-27T14:56:30.665506+03:00",
+      "id": "bf1be8305bc34738b8ed603b50b04221"
+    },
+    {
+      "format": "text/plain",
+      "url": "https://public.docs-sandbox.openprocurement.org/get/5b8d6eb23e3e42c4beb95a7622d0968a?Prefix=8e6f3dd77195472a831f61e3a7eaf7ec%2F739f7c3685f84ff194e871baf3ab9313&KeyID=1331dc52&Signature=pqgol38gLrJ1eFjOmKev%252B7lsVHiXlJxunltcrk7kKFjf0Gy8DGC%252BOp%2FH7l99QDPVgPduY4uZglXw6qhUsY4fCw%253D%253D",
+      "title": "audit_8e6f3dd77195472a831f61e3a7eaf7ec_e2157c17f0964680839073de65495461.yaml",
+      "documentOf": "tender",
+      "datePublished": "2016-04-28T13:15:40.548223+03:00",
+      "dateModified": "2016-04-28T13:15:40.548248+03:00",
+      "id": "739f7c3685f84ff194e871baf3ab9313"
+    },
+    {
+      "format": "text/plain",
+      "url": "https://public.docs-sandbox.openprocurement.org/get/28648014e2ae4e7faf0b7fa6d9312182?Prefix=8e6f3dd77195472a831f61e3a7eaf7ec%2Faa97681b904d45fdb0428f95785ea7ba&KeyID=1331dc52&Signature=sFQRQiDjgKBXW9Om3XXbtJ0lFGio4DbEXIUDKfHYImIYQ1wP63yS7JmAX6Furzs1UNgcMlrxDDOT1GMY%252B1rxDQ%253D%253D",
+      "title": "audit_8e6f3dd77195472a831f61e3a7eaf7ec_cc79f1eeb5a04be4bac04e07f2337b29.yaml",
+      "documentOf": "tender",
+      "datePublished": "2016-04-28T13:41:17.567778+03:00",
+      "dateModified": "2016-04-28T13:41:17.567804+03:00",
+      "id": "aa97681b904d45fdb0428f95785ea7ba"
+    }
+  ],
+  "title": "Допорогові закупівлі//мультилотовая/завершение/11",
+  "lots": [
+    {
+      "status": "active",
+      "description": "Ляльки",
+      "title": "Ляльки",
+      "minimalStep": {
+        "currency": "GBP",
+        "amount": 25,
+        "valueAddedTaxIncluded": true
+      },
+      "auctionPeriod": {
+        "startDate": "2016-04-28T12:54:40+03:00",
+        "endDate": "2016-04-28T13:15:41.226296+03:00"
+      },
+      "value": {
+        "currency": "GBP",
+        "amount": 5000,
+        "valueAddedTaxIncluded": true
+      },
+      "auctionUrl": "https://auction-sandbox.openprocurement.org/tenders/8e6f3dd77195472a831f61e3a7eaf7ec_e2157c17f0964680839073de65495461",
+      "id": "e2157c17f0964680839073de65495461"
+    },
+    {
+      "status": "unsuccessful",
+      "description": "Ігри та іграшки; атракціони",
+      "title": "Ігри та іграшки; атракціони",
+      "minimalStep": {
+        "currency": "GBP",
+        "amount": 35,
+        "valueAddedTaxIncluded": true
+      },
+      "auctionPeriod": {
+        "startDate": "2016-04-28T13:20:17+03:00",
+        "endDate": "2016-04-28T13:41:18.368221+03:00"
+      },
+      "value": {
+        "currency": "GBP",
+        "amount": 7000,
+        "valueAddedTaxIncluded": true
+      },
+      "auctionUrl": "https://auction-sandbox.openprocurement.org/tenders/8e6f3dd77195472a831f61e3a7eaf7ec_cc79f1eeb5a04be4bac04e07f2337b29",
+      "id": "cc79f1eeb5a04be4bac04e07f2337b29"
+    }
+  ],
+  "tenderID": "UA-2016-04-27-000063-1",
+  "guarantee": {
+    "currency": "GBP",
+    "amount": 5000
+  },
+  "dateModified": "2016-05-04T14:44:53.332784+03:00",
+  "status": "active.awarded",
+  "tenderPeriod": {
+    "startDate": "2016-04-27T15:21:00+03:00",
+    "endDate": "2016-04-27T16:00:00+03:00"
+  },
+  "contracts": [
+    {
+      "status": "pending",
+      "documents": [
+        {
+          "description": "Увага, згідно з регламентом Prozorro, користувачі майданчиків не мають права додавати документи з паролями. Вся інформація має бути доступною іншим користувачам!",
+          "format": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+          "url": "https://public.docs-sandbox.openprocurement.org/get/b27f45e67f9f4325872550b98dd59338?Prefix=8e6f3dd77195472a831f61e3a7eaf7ec%2Fac8eee96d22d4f8290d6e1701b7d287f&KeyID=1331dc52&Signature=C4VAT4P3jeNlbbPzZXFh3Jv6XYGqT3WByf3oi1t5ouJ69FfnuDZh2oIT8FcE7qIi0nMpnfDSrcppg1Y3pPQICA%253D%253D",
+          "title": "Документ Microsoft Word.docx",
+          "documentOf": "tender",
+          "datePublished": "2016-04-28T14:25:49.153611+03:00",
+          "documentType": "contractSigned",
+          "dateModified": "2016-04-28T14:25:49.153636+03:00",
+          "id": "ac8eee96d22d4f8290d6e1701b7d287f"
+        }
+      ],
+      "items": [
+        {
+          "relatedLot": "e2157c17f0964680839073de65495461",
+          "description": "Ляльки",
+          "classification": {
+            "scheme": "CPV",
+            "description": "Ляльки",
+            "id": "37510000-6"
+          },
+          "additionalClassifications": [
+            {
+              "scheme": "ДКПП",
+              "id": "23.61.2",
+              "description": " Будівлі складані, з бетону"
+            }
+          ],
+          "deliveryLocation": {
+            "latitude": "широта123",
+            "longitude": "довгота654"
+          },
+          "deliveryAddress": {
+            "postalCode": "07156",
+            "countryName": "УКРАЇНА",
+            "streetAddress": "вул. Хрещатик, буд.1, офіс 777",
+            "region": "Хмельницька область",
+            "locality": "КАМ'ЯНЕЦЬ-ПОДІЛЬСЬКИЙ"
+          },
+          "deliveryDate": {
+            "startDate": "2016-04-28T00:00:00+03:00",
+            "endDate": "2016-04-30T00:00:00+03:00"
+          },
+          "id": "2dd3d7587b26467396146d054fd62281",
+          "unit": {
+            "code": "KMT",
+            "name": "\tкм\t"
+          },
+          "quantity": 500
+        },
+        {
+          "relatedLot": "e2157c17f0964680839073de65495461",
+          "description": "Інші громадські, соціальні та особисті послуги",
+          "classification": {
+            "scheme": "CPV",
+            "description": "Ляльки",
+            "id": "37510000-6"
+          },
+          "additionalClassifications": [
+            {
+              "scheme": "ДКПП",
+              "id": "23.61.12",
+              "description": " Елементи конструкцій складані для житлового або громадського будівництва з цементу, бетону або штучного каменю"
+            }
+          ],
+          "deliveryLocation": {
+            "latitude": "широта123",
+            "longitude": "довгота654"
+          },
+          "deliveryAddress": {
+            "postalCode": "02156",
+            "countryName": "УКРАЇНА",
+            "streetAddress": "вул. Хрещатик, буд.1, офіс 777",
+            "region": "Житомирська область",
+            "locality": "БЕРДИЧІВ"
+          },
+          "deliveryDate": {
+            "endDate": "2016-04-30T00:00:00+03:00"
+          },
+          "id": "0836ecfd845544a5ac806131ad64ad52",
+          "unit": {
+            "code": "LO",
+            "name": "\tлот\t"
+          },
+          "quantity": 50
+        }
+      ],
+      "suppliers": [
+        {
+          "contactPoint": {
+            "telephone": "+380503341003",
+            "faxNumber": "+380503341003",
+            "name": "Маришева Наталія Володимирівна",
+            "email": "PBuser2@meta.ua"
+          },
+          "identifier": {
+            "scheme": "UA-EDR",
+            "id": "1112223330",
+            "legalName": "ДП Твікс"
+          },
+          "name": "Твікс",
+          "address": {
+            "postalCode": "02134",
+            "countryName": "УКРАЇНА",
+            "streetAddress": "вул. Карамельна, буд. 2",
+            "region": "Житомирська область",
+            "locality": "ЯРЕШКИ"
+          }
+        }
+      ],
+      "value": {
+        "currency": "GBP",
+        "amount": 5000,
+        "valueAddedTaxIncluded": true
+      },
+      "awardID": "884d07752fed4d10a4b7abb6f753ef3d",
+      "id": "01cdd078ae78488498166379370c85bf",
+      "contractID": "UA-2016-04-27-000063-1-11"
+    }
+  ],
+  "procurementMethodType": "belowThreshold",
+  "awards": [
+    {
+      "status": "unsuccessful",
+      "documents": [
+        {
+          "description": "Офіційне повідомлення, що містить деталі рішення про визначення переможця. Це може бути посилання на документ, веб-сторінку, чи на офіційний бюлетень, де розміщено повідомлення.",
+          "format": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+          "url": "https://public.docs-sandbox.openprocurement.org/get/b5dff2ac21504cc39c31703976b4c51a?Prefix=8e6f3dd77195472a831f61e3a7eaf7ec%2F2110d5e91eba4a97a3e773991fac8e91&KeyID=1331dc52&Signature=1%252BwAC8xKLbjG697lJR6oNXGwlxeVkJx%252BV0w5jl3H7oo%2F9Jf%2FM0xldpS3DyUGNDKhpliixal8mWivDJYwd%2FU9Ag%253D%253D",
+          "title": "Документ Microsoft Word.docx",
+          "documentOf": "tender",
+          "datePublished": "2016-04-28T14:16:37.984110+03:00",
+          "documentType": "awardNotice",
+          "dateModified": "2016-04-28T14:16:37.984136+03:00",
+          "id": "2110d5e91eba4a97a3e773991fac8e91"
+        }
+      ],
+      "complaintPeriod": {
+        "startDate": "2016-04-28T13:41:18.437765+03:00",
+        "endDate": "2016-05-04T14:16:39.381342+03:00"
+      },
+      "suppliers": [
+        {
+          "contactPoint": {
+            "telephone": "+380503341003",
+            "faxNumber": "+380503341003",
+            "name": "Задніпровська Тамара Ігорівна",
+            "email": "PBuser113@gmail.com"
+          },
+          "identifier": {
+            "scheme": "UA-EDR",
+            "id": "6549876543",
+            "legalName": "БО Сонечко"
+          },
+          "name": "Сонечко",
+          "address": {
+            "postalCode": "24687",
+            "countryName": "УКРАЇНА",
+            "streetAddress": "вул. Хрещатик, буд.1, офіс 777",
+            "region": "Днiпропетровська область",
+            "locality": "ГЛУХЕ"
+          }
+        }
+      ],
+      "bid_id": "c78db1f7340a4a58a4aff12c9999d46e",
+      "value": {
+        "currency": "GBP",
+        "amount": 5000,
+        "valueAddedTaxIncluded": true
+      },
+      "lotID": "e2157c17f0964680839073de65495461",
+      "date": "2016-04-28T13:41:18.438984+03:00",
+      "id": "f89226952b33410cb22b96141212d783"
+    },
+    {
+      "status": "unsuccessful",
+      "documents": [
+        {
+          "format": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+          "url": "https://public.docs-sandbox.openprocurement.org/get/347fec3f7a194048bc00473fdeb172b7?Prefix=8e6f3dd77195472a831f61e3a7eaf7ec%2F8f5caef6b3634248a62c173e212ee2e3&KeyID=1331dc52&Signature=XdJOVHx5dqsDZ%252BAsCFaBSU%2Flfc1q1BPZ%2FzScz3hknUQq3yf%252BPGRfKdDmIrcLMTvN6YUpsP1wQPwYAbhnPWSMDw%253D%253D",
+          "title": "Документ Microsoft Word.docx",
+          "documentOf": "tender",
+          "datePublished": "2016-04-28T14:33:51.804212+03:00",
+          "documentType": "awardNotice",
+          "dateModified": "2016-04-28T14:33:51.804236+03:00",
+          "id": "8f5caef6b3634248a62c173e212ee2e3"
+        }
+      ],
+      "complaintPeriod": {
+        "startDate": "2016-04-28T13:41:18.437765+03:00",
+        "endDate": "2016-05-04T14:33:53.509827+03:00"
+      },
+      "suppliers": [
+        {
+          "contactPoint": {
+            "telephone": "+380503341003",
+            "faxNumber": "+380503341003",
+            "name": "Задніпровська Тамара Ігорівна",
+            "email": "PBuser113@gmail.com"
+          },
+          "identifier": {
+            "scheme": "UA-EDR",
+            "id": "6549876543",
+            "legalName": "БО Сонечко"
+          },
+          "name": "Сонечко",
+          "address": {
+            "postalCode": "24687",
+            "countryName": "УКРАЇНА",
+            "streetAddress": "вул. Хрещатик, буд.1, офіс 777",
+            "region": "Днiпропетровська область",
+            "locality": "ГЛУХЕ"
+          }
+        }
+      ],
+      "bid_id": "c78db1f7340a4a58a4aff12c9999d46e",
+      "value": {
+        "currency": "GBP",
+        "amount": 7000,
+        "valueAddedTaxIncluded": true
+      },
+      "lotID": "cc79f1eeb5a04be4bac04e07f2337b29",
+      "date": "2016-04-28T13:41:18.440081+03:00",
+      "id": "7e5a5bc2f2fc44ed815128e1d7584d48"
+    },
+    {
+      "status": "active",
+      "documents": [
+        {
+          "description": "Офіційне повідомлення, що містить деталі рішення про визначення переможця. Це може бути посилання на документ, веб-сторінку, чи на офіційний бюлетень, де розміщено повідомлення.",
+          "format": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+          "url": "https://public.docs-sandbox.openprocurement.org/get/2bd4fdbcfd34488b920966113e1cb6fa?Prefix=8e6f3dd77195472a831f61e3a7eaf7ec%2Fb7b22489a7d8419ba3f62bb69a458040&KeyID=1331dc52&Signature=3LsfcTfsw9KW%252BW%2FKR6IBIOxlz0zDQgofrW5hPqKNvpSrzZoAvG9g2C2lhIjB80N1lyOS2qp%252B%252BRqmAXUt8GXcBA%253D%253D",
+          "title": "Документ Microsoft Word.docx",
+          "documentOf": "tender",
+          "datePublished": "2016-04-28T14:21:01.650480+03:00",
+          "documentType": "awardNotice",
+          "dateModified": "2016-04-28T14:21:01.650506+03:00",
+          "id": "b7b22489a7d8419ba3f62bb69a458040"
+        }
+      ],
+      "complaintPeriod": {
+        "startDate": "2016-04-28T14:16:39.381407+03:00",
+        "endDate": "2016-05-04T14:21:07.081930+03:00"
+      },
+      "suppliers": [
+        {
+          "contactPoint": {
+            "telephone": "+380503341003",
+            "faxNumber": "+380503341003",
+            "name": "Маришева Наталія Володимирівна",
+            "email": "PBuser2@meta.ua"
+          },
+          "identifier": {
+            "scheme": "UA-EDR",
+            "id": "1112223330",
+            "legalName": "ДП Твікс"
+          },
+          "name": "Твікс",
+          "address": {
+            "postalCode": "02134",
+            "countryName": "УКРАЇНА",
+            "streetAddress": "вул. Карамельна, буд. 2",
+            "region": "Житомирська область",
+            "locality": "ЯРЕШКИ"
+          }
+        }
+      ],
+      "bid_id": "33b63c17b2e148dcb3301562147a8e22",
+      "value": {
+        "currency": "GBP",
+        "amount": 5000,
+        "valueAddedTaxIncluded": true
+      },
+      "lotID": "e2157c17f0964680839073de65495461",
+      "date": "2016-04-28T14:16:39.382055+03:00",
+      "id": "884d07752fed4d10a4b7abb6f753ef3d"
+    },
+    {
+      "status": "unsuccessful",
+      "documents": [
+        {
+          "description": "Офіційне повідомлення, що містить деталі рішення про визначення переможця. Це може бути посилання на документ, веб-сторінку, чи на офіційний бюлетень, де розміщено повідомлення.",
+          "format": "image/png",
+          "url": "https://public.docs-sandbox.openprocurement.org/get/e8d37ed5b13c48b1acd45905d280e08c?Prefix=8e6f3dd77195472a831f61e3a7eaf7ec%2Fbed695073ac3483a961d7401ad9ad149&KeyID=1331dc52&Signature=nq7e7pZ4iYbbXodNVGtruIRe3oUp37TAgvQXgdBebB6J3%2FFHmy3o3QCWFV0n3tazHGIYe%252BCkbahtVBNfF4JeBA%253D%253D",
+          "title": "05.02.2016(1).png",
+          "documentOf": "tender",
+          "datePublished": "2016-04-28T14:43:05.191615+03:00",
+          "documentType": "awardNotice",
+          "dateModified": "2016-04-28T14:43:05.191640+03:00",
+          "id": "bed695073ac3483a961d7401ad9ad149"
+        }
+      ],
+      "complaintPeriod": {
+        "startDate": "2016-04-28T14:33:53.509891+03:00",
+        "endDate": "2016-05-04T14:43:08.478143+03:00"
+      },
+      "suppliers": [
+        {
+          "contactPoint": {
+            "telephone": "+380503341003",
+            "faxNumber": "+380503341003",
+            "name": "Маришева Наталія Володимирівна",
+            "email": "PBuser2@meta.ua"
+          },
+          "identifier": {
+            "scheme": "UA-EDR",
+            "id": "1112223330",
+            "legalName": "ДП Твікс"
+          },
+          "name": "Твікс",
+          "address": {
+            "postalCode": "02134",
+            "countryName": "УКРАЇНА",
+            "streetAddress": "вул. Карамельна, буд. 2",
+            "region": "Житомирська область",
+            "locality": "ЯРЕШКИ"
+          }
+        }
+      ],
+      "bid_id": "33b63c17b2e148dcb3301562147a8e22",
+      "value": {
+        "currency": "GBP",
+        "amount": 7000,
+        "valueAddedTaxIncluded": true
+      },
+      "lotID": "cc79f1eeb5a04be4bac04e07f2337b29",
+      "date": "2016-04-28T14:33:53.510656+03:00",
+      "id": "ce13aedc6ca94c2cb1a92e1a7e52b0de"
+    }
+  ],
+  "complaints": [
+    {
+      "status": "invalid",
+      "documents": [
+        {
+          "author": "complaint_owner",
+          "format": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+          "url": "https://public.docs-sandbox.openprocurement.org/get/8e49b682be8a40a19345e32383f4d65d?Prefix=8e6f3dd77195472a831f61e3a7eaf7ec%2F2021d0f3b2c24b5b9c3bcbdcb8b7d9ab&KeyID=1331dc52&Signature=KiEBTESbH4wCaDayYTpznFykNyopXM%252BSjGWw7R3eP%252B3UMakxxq72ylMYVxv057gjX6EoODjLb7KZTUIBxHGYAw%253D%253D",
+          "title": "Microsoft Excel.xlsx",
+          "documentOf": "tender",
+          "datePublished": "2016-04-27T14:50:26.583431+03:00",
+          "dateModified": "2016-04-27T14:50:26.583455+03:00",
+          "id": "2021d0f3b2c24b5b9c3bcbdcb8b7d9ab"
+        }
+      ],
+      "description": "Текст вимоги",
+      "author": {
+        "contactPoint": {
+          "telephone": "+380636848613",
+          "name": "Жиляєв Арсеній Ігорович",
+          "email": "pbuser114@gmail.com"
+        },
+        "identifier": {
+          "scheme": "UA-EDR",
+          "id": "6354987651",
+          "legalName": "Вітерець"
+        },
+        "name": "Вітерець",
+        "address": {
+          "postalCode": "54694",
+          "countryName": "УКРАЇНА",
+          "streetAddress": "вул. Хрещатик, буд.1, офіс 777",
+          "region": "Харкiвська область",
+          "locality": "ПОПІВКА"
+        }
+      },
+      "resolutionType": "invalid",
+      "resolution": "Відповідь ВідповідьВідповідь",
+      "title": "Короткий заголовок вимоги",
+      "dateAnswered": "2016-04-27T14:51:43.665356+03:00",
+      "dateSubmitted": "2016-04-27T14:50:28.221238+03:00",
+      "complaintID": "UA-2016-04-27-000063-1.11",
+      "date": "2016-04-27T14:50:25.795096+03:00",
+      "type": "claim",
+      "id": "2cfe311d715f42d0a85e2b25981fabf4"
+    }
+  ],
+  "minimalStep": {
+    "currency": "GBP",
+    "amount": 25,
+    "valueAddedTaxIncluded": true
+  },
+  "items": [
+    {
+      "relatedLot": "cc79f1eeb5a04be4bac04e07f2337b29",
+      "description": "Ігри та іграшки; атракціони",
+      "classification": {
+        "scheme": "CPV",
+        "description": "Ігри та іграшки; атракціони",
+        "id": "37500000-3"
+      },
+      "additionalClassifications": [
+        {
+          "scheme": "ДКПП",
+          "id": "23.61.11",
+          "description": " Плитка, плити, цегла та подібні вироби з цементу, бетону або штучного каменю"
+        }
+      ],
+      "deliveryLocation": {
+        "latitude": "широта123",
+        "longitude": "довгота654"
+      },
+      "deliveryAddress": {
+        "postalCode": "02134",
+        "countryName": "УКРАЇНА",
+        "streetAddress": "вул. Хрещатик, буд.1, офіс 777",
+        "region": "Донецька область",
+        "locality": "ЧАСІВ ЯР"
+      },
+      "deliveryDate": {
+        "startDate": "2016-04-28T00:00:00+03:00",
+        "endDate": "2016-04-30T00:00:00+03:00"
+      },
+      "id": "497d66c380e54d789ae36474652b46c4",
+      "unit": {
+        "code": "KGM",
+        "name": "\tкг.\t"
+      },
+      "quantity": 700
+    },
+    {
+      "relatedLot": "e2157c17f0964680839073de65495461",
+      "description": "Ляльки",
+      "classification": {
+        "scheme": "CPV",
+        "description": "Ляльки",
+        "id": "37510000-6"
+      },
+      "additionalClassifications": [
+        {
+          "scheme": "ДКПП",
+          "id": "23.61.2",
+          "description": " Будівлі складані, з бетону"
+        }
+      ],
+      "deliveryLocation": {
+        "latitude": "широта123",
+        "longitude": "довгота654"
+      },
+      "deliveryAddress": {
+        "postalCode": "07156",
+        "countryName": "УКРАЇНА",
+        "streetAddress": "вул. Хрещатик, буд.1, офіс 777",
+        "region": "Хмельницька область",
+        "locality": "КАМ'ЯНЕЦЬ-ПОДІЛЬСЬКИЙ"
+      },
+      "deliveryDate": {
+        "startDate": "2016-04-28T00:00:00+03:00",
+        "endDate": "2016-04-30T00:00:00+03:00"
+      },
+      "id": "2dd3d7587b26467396146d054fd62281",
+      "unit": {
+        "code": "KMT",
+        "name": "\tкм\t"
+      },
+      "quantity": 500
+    },
+    {
+      "relatedLot": "cc79f1eeb5a04be4bac04e07f2337b29",
+      "description": "Маріонетки",
+      "classification": {
+        "scheme": "CPV",
+        "description": "Маріонетки",
+        "id": "37513000-7"
+      },
+      "additionalClassifications": [
+        {
+          "scheme": "ДКПП",
+          "id": "23.61.12",
+          "description": " Елементи конструкцій складані для житлового або громадського будівництва з цементу, бетону або штучного каменю"
+        }
+      ],
+      "deliveryLocation": {
+        "latitude": "широта123",
+        "longitude": "довгота654"
+      },
+      "deliveryAddress": {
+        "postalCode": "02134",
+        "countryName": "УКРАЇНА",
+        "streetAddress": "вул. Хрещатик, буд.1, офіс 777",
+        "region": "Iвано-Франкiвська область",
+        "locality": "ВИГІВКА"
+      },
+      "deliveryDate": {
+        "startDate": "2016-04-28T00:00:00+03:00",
+        "endDate": "2016-04-30T00:00:00+03:00"
+      },
+      "id": "bcb3521b147343c28a74e2eb17a85454",
+      "unit": {
+        "code": "MTK",
+        "name": "\tм.кв.\t"
+      },
+      "quantity": 789
+    },
+    {
+      "relatedLot": "e2157c17f0964680839073de65495461",
+      "description": "Інші громадські, соціальні та особисті послуги",
+      "classification": {
+        "scheme": "CPV",
+        "description": "Ляльки",
+        "id": "37510000-6"
+      },
+      "additionalClassifications": [
+        {
+          "scheme": "ДКПП",
+          "id": "23.61.12",
+          "description": " Елементи конструкцій складані для житлового або громадського будівництва з цементу, бетону або штучного каменю"
+        }
+      ],
+      "deliveryLocation": {
+        "latitude": "широта123",
+        "longitude": "довгота654"
+      },
+      "deliveryAddress": {
+        "postalCode": "02156",
+        "countryName": "УКРАЇНА",
+        "streetAddress": "вул. Хрещатик, буд.1, офіс 777",
+        "region": "Житомирська область",
+        "locality": "БЕРДИЧІВ"
+      },
+      "deliveryDate": {
+        "endDate": "2016-04-30T00:00:00+03:00"
+      },
+      "id": "0836ecfd845544a5ac806131ad64ad52",
+      "unit": {
+        "code": "LO",
+        "name": "\tлот\t"
+      },
+      "quantity": 50
+    }
+  ],
+  "bids": [
+    {
+      "status": "active",
+      "documents": [
+        {
+          "format": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+          "url": "https://public.docs-sandbox.openprocurement.org/get/1194a97c48184ccd933953a26d922521?Prefix=8e6f3dd77195472a831f61e3a7eaf7ec%2Fc06b7e67921b45da9ca36ffff59d1d39&KeyID=1331dc52&Signature=9PA3M6IFKa9qzsgFGdYU6dHbo8hRrzY7%252BS71pF7C7hgSNiMW8Cbp5Z4EXhzHG8Xnqm8HNvaGpH3H9QO4PnOqBA%253D%253D",
+          "title": "Microsoft Excel.xlsx",
+          "documentOf": "tender",
+          "datePublished": "2016-04-27T15:30:08.805455+03:00",
+          "dateModified": "2016-04-27T15:30:08.805478+03:00",
+          "id": "c06b7e67921b45da9ca36ffff59d1d39"
+        },
+        {
+          "format": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+          "url": "https://public.docs-sandbox.openprocurement.org/get/5f7388d1beff44f2b90f560bcda8122c?Prefix=8e6f3dd77195472a831f61e3a7eaf7ec%2F44db6e3333a64492b2ee445b3dfd7571&KeyID=1331dc52&Signature=V283mox7Q%252BVFcghiPY2a4I8Ulfio5tDHvH1VAYTpoWJ6m43LuWOjmn9xJ4qzErE4VHJkpujpNGkG3IMdCCSRDg%253D%253D",
+          "title": "Документ Microsoft Word.docx",
+          "documentOf": "tender",
+          "datePublished": "2016-04-27T15:30:10.798793+03:00",
+          "dateModified": "2016-04-27T15:30:10.798815+03:00",
+          "id": "44db6e3333a64492b2ee445b3dfd7571"
+        }
+      ],
+      "parameters": [
+        {
+          "code": "49018d9c-afb0-475e-aabc-4e248a5afa8b",
+          "value": 0.05
+        },
+        {
+          "code": "6f0ad3a1-d371-4bdf-b468-a473be7723bc",
+          "value": 0.1
+        },
+        {
+          "code": "4ae0f315-8bf1-4558-a96e-3ccde49a5730",
+          "value": 0.03
+        },
+        {
+          "code": "c0682de3-2faf-4a60-ad88-ecbab3b2542a",
+          "value": 0.02
+        }
+      ],
+      "lotValues": [
+        {
+          "relatedLot": "cc79f1eeb5a04be4bac04e07f2337b29",
+          "date": "2016-04-27T15:30:06.363127+03:00",
+          "participationUrl": "https://auction-sandbox.openprocurement.org/tenders/8e6f3dd77195472a831f61e3a7eaf7ec_cc79f1eeb5a04be4bac04e07f2337b29/login?bidder_id=c78db1f7340a4a58a4aff12c9999d46e&hash=fbec1071ca603f010fe3d44273a6d1b1e1cd9a70",
+          "value": {
+            "currency": "GBP",
+            "amount": 7000,
+            "valueAddedTaxIncluded": true
+          }
+        },
+        {
+          "relatedLot": "e2157c17f0964680839073de65495461",
+          "date": "2016-04-27T15:30:06.363396+03:00",
+          "participationUrl": "https://auction-sandbox.openprocurement.org/tenders/8e6f3dd77195472a831f61e3a7eaf7ec_e2157c17f0964680839073de65495461/login?bidder_id=c78db1f7340a4a58a4aff12c9999d46e&hash=fbec1071ca603f010fe3d44273a6d1b1e1cd9a70",
+          "value": {
+            "currency": "GBP",
+            "amount": 5000,
+            "valueAddedTaxIncluded": true
+          }
+        }
+      ],
+      "tenderers": [
+        {
+          "contactPoint": {
+            "telephone": "+380503341003",
+            "faxNumber": "+380503341003",
+            "name": "Задніпровська Тамара Ігорівна",
+            "email": "PBuser113@gmail.com"
+          },
+          "identifier": {
+            "scheme": "UA-EDR",
+            "id": "6549876543",
+            "legalName": "БО Сонечко"
+          },
+          "name": "Сонечко",
+          "address": {
+            "postalCode": "24687",
+            "countryName": "УКРАЇНА",
+            "streetAddress": "вул. Хрещатик, буд.1, офіс 777",
+            "region": "Днiпропетровська область",
+            "locality": "ГЛУХЕ"
+          }
+        }
+      ],
+      "date": "2016-04-27T15:30:06.363435+03:00",
+      "id": "c78db1f7340a4a58a4aff12c9999d46e"
+    },
+    {
+      "status": "active",
+      "documents": [
+        {
+          "format": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+          "url": "https://public.docs-sandbox.openprocurement.org/get/2efe28062b424adcb6fd5612225139a7?Prefix=8e6f3dd77195472a831f61e3a7eaf7ec%2Fdecde812cd784418a8bb045d2f1c9c01&KeyID=1331dc52&Signature=oQjH2NQYvTww5s06EUPluSddEC6%2Fuq88V4N%2FMTQLaAECST3B9C5w3LoWRgduRDdQUc0u2MuXk30j8swij5VtAg%253D%253D",
+          "title": "Microsoft Excel.xlsx",
+          "documentOf": "tender",
+          "datePublished": "2016-04-27T15:39:04.693476+03:00",
+          "dateModified": "2016-04-27T15:39:04.693499+03:00",
+          "id": "decde812cd784418a8bb045d2f1c9c01"
+        },
+        {
+          "format": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+          "url": "https://public.docs-sandbox.openprocurement.org/get/afacf9eb32c64092a5fa587e867d9b8b?Prefix=8e6f3dd77195472a831f61e3a7eaf7ec%2Fba04d7e1fee44c9696af2f510aaae6e3&KeyID=1331dc52&Signature=v4eHRC2bM3oYofzAGuwxQ8wjedVqTbMo2AOTTgMP7OmyPP%252BWglmPm93iWpqinwyj4GDJ0L5v6%252Bexrrr%2Fx2lhDg%253D%253D",
+          "title": "Документ Microsoft Word.docx",
+          "documentOf": "tender",
+          "datePublished": "2016-04-27T15:39:06.193870+03:00",
+          "dateModified": "2016-04-27T15:39:06.193893+03:00",
+          "id": "ba04d7e1fee44c9696af2f510aaae6e3"
+        }
+      ],
+      "parameters": [
+        {
+          "code": "49018d9c-afb0-475e-aabc-4e248a5afa8b",
+          "value": 0
+        },
+        {
+          "code": "c0682de3-2faf-4a60-ad88-ecbab3b2542a",
+          "value": 0
+        },
+        {
+          "code": "4ae0f315-8bf1-4558-a96e-3ccde49a5730",
+          "value": 0.03
+        },
+        {
+          "code": "6f0ad3a1-d371-4bdf-b468-a473be7723bc",
+          "value": 0
+        }
+      ],
+      "lotValues": [
+        {
+          "relatedLot": "cc79f1eeb5a04be4bac04e07f2337b29",
+          "date": "2016-04-27T15:39:02.187072+03:00",
+          "participationUrl": "https://auction-sandbox.openprocurement.org/tenders/8e6f3dd77195472a831f61e3a7eaf7ec_cc79f1eeb5a04be4bac04e07f2337b29/login?bidder_id=33b63c17b2e148dcb3301562147a8e22&hash=82d7ffe6304cc0688461679f95443c1c69603942",
+          "value": {
+            "currency": "GBP",
+            "amount": 7000,
+            "valueAddedTaxIncluded": true
+          }
+        },
+        {
+          "relatedLot": "e2157c17f0964680839073de65495461",
+          "date": "2016-04-27T15:39:02.187344+03:00",
+          "participationUrl": "https://auction-sandbox.openprocurement.org/tenders/8e6f3dd77195472a831f61e3a7eaf7ec_e2157c17f0964680839073de65495461/login?bidder_id=33b63c17b2e148dcb3301562147a8e22&hash=82d7ffe6304cc0688461679f95443c1c69603942",
+          "value": {
+            "currency": "GBP",
+            "amount": 5000,
+            "valueAddedTaxIncluded": true
+          }
+        }
+      ],
+      "tenderers": [
+        {
+          "contactPoint": {
+            "telephone": "+380503341003",
+            "faxNumber": "+380503341003",
+            "name": "Маришева Наталія Володимирівна",
+            "email": "PBuser2@meta.ua"
+          },
+          "identifier": {
+            "scheme": "UA-EDR",
+            "id": "1112223330",
+            "legalName": "ДП Твікс"
+          },
+          "name": "Твікс",
+          "address": {
+            "postalCode": "02134",
+            "countryName": "УКРАЇНА",
+            "streetAddress": "вул. Карамельна, буд. 2",
+            "region": "Житомирська область",
+            "locality": "ЯРЕШКИ"
+          }
+        }
+      ],
+      "date": "2016-04-27T15:39:02.187385+03:00",
+      "id": "33b63c17b2e148dcb3301562147a8e22"
+    }
+  ],
+  "value": {
+    "currency": "GBP",
+    "amount": 12000,
+    "valueAddedTaxIncluded": true
+  },
+  "awardCriteria": "lowestCost"
+}
