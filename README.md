@@ -20,7 +20,7 @@ Folder contains mappings itself for 1.1 adn 1.1 extended format
 Folder contains Prozorro extensions for OCDS 1.1 to fit all data available 
 
 ## OCDS 1.1 progress:
- - all done
+- [x] done
 
 ## OCDS 1.1 extended:
 
@@ -47,3 +47,15 @@ Folder contains Prozorro extensions for OCDS 1.1 to fit all data available
 - [ ] tenderID
 - [ ] unitCode
 - [ ] valueAddedTax
+
+## Build dev environment:
+```bash
+pyenv virtualenv env
+pyenv activate env
+pip install -r requirements.txt
+```
+
+## Run transform on test data
+``` bash
+python ocds.py | jq
+```
