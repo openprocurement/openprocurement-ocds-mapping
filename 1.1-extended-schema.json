@@ -1,0 +1,2324 @@
+{
+  "title": "Schema for an Open Contracting Release",
+  "required": [
+    "ocid",
+    "id",
+    "date",
+    "tag",
+    "initiationType"
+  ],
+  "id": "http://standard.open-contracting.org/schema/1__1__2/release-schema.json",
+  "definitions": {
+    "Implementation": {
+      "title": "Implementation",
+      "type": "object",
+      "properties": {
+        "milestones": {
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/definitions/Milestone"
+          },
+          "type": "array",
+          "description": "As milestones are completed, milestone completions should be documented.",
+          "title": "Milestones"
+        },
+        "documents": {
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/definitions/Document"
+          },
+          "type": "array",
+          "description": "Documents and reports that are part of the implementation phase e.g. audit and evaluation reports.",
+          "title": "Documents"
+        },
+        "transactions": {
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/definitions/Transaction"
+          },
+          "type": "array",
+          "description": "A list of the spending transactions made against this contract",
+          "title": "Transactions"
+        }
+      },
+      "description": "Information during the performance / implementation stage of the contract."
+    },
+    "OrganizationReference": {
+      "description": "The id and name of the party being referenced. Used to cross-reference to the parties section",
+      "required": [
+        "name"
+      ],
+      "type": "object",
+      "properties": {
+        "additionalIdentifiers": {
+          "wholeListMerge": true,
+          "title": "Additional identifiers",
+          "deprecated": {
+            "deprecatedVersion": "1.1",
+            "description": "From version 1.1, organizations should be referenced by their identifier and name in a document, and additional identifiers for an organization should be provided in the relevant cross-referenced entry in the parties section at the top level of a release."
+          },
+          "items": {
+            "$ref": "#/definitions/Identifier"
+          },
+          "uniqueItems": true,
+          "type": "array",
+          "description": "(Deprecated outside the parties section) A list of additional / supplemental identifiers for the organization, using the [organization identifier guidance](http://standard.open-contracting.org/latest/en/schema/identifiers/). This could be used to provide an internally used identifier for this organization in addition to the primary legal entity identifier."
+        },
+        "name": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "The name of the party being referenced. This must match the name of an entry in the parties section.",
+          "title": "Organization name"
+        },
+        "address": {
+          "deprecated": {
+            "deprecatedVersion": "1.1",
+            "description": "From version 1.1, organizations should be referenced by their identifier and name in a document, and address information should only be provided in the relevant cross-referenced entry in the parties section at the top level of a release."
+          },
+          "$ref": "#/definitions/Address",
+          "description": "(Deprecated outside the parties section)",
+          "title": "Address"
+        },
+        "contactPoint": {
+          "deprecated": {
+            "deprecatedVersion": "1.1",
+            "description": "From version 1.1, organizations should be referenced by their identifier and name in a document, and contact point information for an organization should be provided in the relevant cross-referenced entry in the parties section at the top level of a release."
+          },
+          "$ref": "#/definitions/ContactPoint",
+          "description": "(Deprecated outside the parties section)",
+          "title": "Contact point"
+        },
+        "identifier": {
+          "deprecated": {
+            "deprecatedVersion": "1.1",
+            "description": "From version 1.1, organizations should be referenced by their identifier and name in a document, and detailed legal identifier information should only be provided in the relevant cross-referenced entry in the parties section at the top level of a release."
+          },
+          "title": "Primary identifier",
+          "description": "The primary identifier for this organization. Identifiers that uniquely pick out a legal entity should be preferred. Consult the [organization identifier guidance](http://standard.open-contracting.org/latest/en/schema/identifiers/) for the preferred scheme and identifier to use.",
+          "$ref": "#/definitions/Identifier"
+        },
+        "id": {
+          "type": [
+            "string",
+            "integer"
+          ],
+          "description": "The id of the party being referenced. This must match the id of an entry in the parties section.",
+          "title": "Organization ID"
+        }
+      },
+      "title": "Organization reference"
+    },
+    "Document": {
+      "description": "Links to, or descriptions of, external documents can be attached at various locations within the standard. Documents may be supporting information, formal notices, downloadable forms, or any other kind of resource that should be made public as part of full open contracting.",
+      "title": "Document",
+      "required": [
+        "id"
+      ],
+      "patternProperties": {
+        "^(title_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "^(description_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "A short description of the document. We recommend descriptions do not exceed 250 words. In the event the document is not accessible online, the description field can be used to describe arrangements for obtaining a copy of the document.",
+          "title": "Description"
+        },
+        "language": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Specifies the language of the linked document using either two-letter [ISO639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes), or extended [BCP47 language tags](http://www.w3.org/International/articles/language-tags/). The use of lowercase two-letter codes from [ISO639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) is strongly recommended unless there is a clear user need for distinguishing the language subtype.",
+          "title": "Language"
+        },
+        "format": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "The format of the document taken from the [IANA Media Types codelist](http://www.iana.org/assignments/media-types/), with the addition of one extra value for 'offline/print', used when this document entry is being used to describe the offline publication of a document. Use values from the template column. Links to web pages should be tagged 'text/html'.",
+          "title": "Format"
+        },
+        "url": {
+          "title": "URL",
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": " direct link to the document or attachment. The server providing access to this document should be configured to correctly report the document mime type.",
+          "format": "uri"
+        },
+        "title": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "The document title.",
+          "title": "Title"
+        },
+        "datePublished": {
+          "title": "Date published",
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "The date on which the document was first published. This is particularly important for legally important documents such as notices of a tender.",
+          "format": "date-time"
+        },
+        "documentType": {
+          "title": "Document type",
+          "codelist": "documentType.csv",
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "A classification of the document described taken from the [documentType codelist](http://standard.open-contracting.org/latest/en/schema/codelists/#document-type). Values from the provided codelist should be used wherever possible, though extended values can be provided if the codelist does not have a relevant code.",
+          "openCodelist": true
+        },
+        "id": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "integer"
+          ],
+          "description": "A local, unique identifier for this document. This field is used to keep track of multiple revisions of a document through the compilation from release to record mechanism.",
+          "title": "ID"
+        },
+        "dateModified": {
+          "title": "Date modified",
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Date that the document was last modified",
+          "format": "date-time"
+        }
+      }
+    },
+    "Bid": {
+      "properties": {
+        "status": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "The status of the bid, drawn from the bidStatus codelist",
+          "title": "Status"
+        },
+        "relatedLot": {
+          "type": "string",
+          "description": "Id of related lot",
+          "title": "Related Lot"
+        },
+        "documents": {
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/definitions/Document"
+          },
+          "type": "array",
+          "description": "All documents and attachments related to the bid and its evaluation.",
+          "title": "Documents"
+        },
+        "value": {
+          "$ref": "#/definitions/Value",
+          "description": "The total value of the bid.",
+          "title": "Value"
+        },
+        "tenderers": {
+          "items": {
+            "$ref": "#/definitions/Organization"
+          },
+          "type": [
+            "array",
+            "null"
+          ],
+          "description": "The party, or parties, responsible for this bid. This should provide a name and identifier, cross-referenced to an entry in the parties array at the top level of the release.",
+          "title": "Tenderer"
+        },
+        "date": {
+          "format": "date-time",
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "The date when this bid was received.",
+          "title": "Date"
+        },
+        "id": {
+          "type": [
+            "string"
+          ],
+          "description": "A local identifier for this bid",
+          "title": "ID"
+        },
+        "participationUrl": {
+          "type": "string",
+          "descritpion": "A link for participation in auction",
+          "title": "Participation url"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "type": "object",
+      "description": "For representing a bid in response to the tender or qualification stage in this contracting process.",
+      "title": "Bid"
+    },
+    "Award": {
+      "description": "An award for the given procurement. There may be more than one award per contracting process e.g. because the contract is split among different providers, or because it is a standing offer.",
+      "title": "Award",
+      "required": [
+        "id"
+      ],
+      "patternProperties": {
+        "^(title_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "^(description_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "type": "object",
+      "properties": {
+        "status": {
+          "codelist": "awardStatus.csv",
+          "description": "The current status of the award drawn from the [awardStatus codelist](http://standard.open-contracting.org/latest/en/schema/codelists/#award-status)",
+          "title": "Award status",
+          "enum": [
+            "pending",
+            "active",
+            "cancelled",
+            "unsuccessful",
+            null
+          ],
+          "type": [
+            "string",
+            "null"
+          ],
+          "openCodelist": false
+        },
+        "amendment": {
+          "deprecated": {
+            "deprecatedVersion": "1.1",
+            "description": "The single amendment object has been deprecated in favour of including amendments in an amendments (plural) array."
+          },
+          "title": "Amendment",
+          "description": "The use of individual amendment objects has been deprecated. From OCDS 1.1 information should be provided in the amendments array.",
+          "$ref": "#/definitions/Amendment"
+        },
+        "amendments": {
+          "items": {
+            "$ref": "#/definitions/Amendment"
+          },
+          "type": "array",
+          "description": "An award amendment is a formal change to the details of the award, and generally involves the publication of a new award notice/release. The rationale and a description of the changes made can be provided here.",
+          "title": "Amendments"
+        },
+        "documents": {
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/definitions/Document"
+          },
+          "type": "array",
+          "description": "All documents and attachments related to the award, including any notices.",
+          "title": "Documents"
+        },
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Award description",
+          "title": "Description"
+        },
+        "title": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Award title",
+          "title": "Title"
+        },
+        "items": {
+          "description": "The goods and services awarded in this award, broken into line items wherever possible. Items should not be duplicated, but the quantity specified instead.",
+          "title": "Items awarded",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/definitions/Item"
+          },
+          "uniqueItems": true,
+          "type": "array"
+        },
+        "suppliers": {
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/definitions/OrganizationReference"
+          },
+          "type": "array",
+          "description": "The suppliers awarded this award. If different suppliers have been awarded different items of values, these should be split into separate award blocks.",
+          "title": "Suppliers"
+        },
+        "value": {
+          "title": "Value",
+          "description": "The total value of this award. In the case of a framework contract this may be the total estimated lifetime value, or maximum value, of the agreement. There may be more than one award per procurement. A negative value indicates that the award may involve payments from the supplier to the buyer (commonly used in concession contracts).",
+          "$ref": "#/definitions/Value"
+        },
+        "date": {
+          "title": "Award date",
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "The date of the contract award. This is usually the date on which a decision to award was made.",
+          "format": "date-time"
+        },
+        "id": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "integer"
+          ],
+          "description": "The identifier for this award. It must be unique and cannot change within the Open Contracting Process it is part of (defined by a single ocid). See the [identifier guidance](http://standard.open-contracting.org/latest/en/schema/identifiers/) for further details.",
+          "title": "Award ID"
+        },
+        "contractPeriod": {
+          "title": "Contract period",
+          "description": "The period for which the contract has been awarded.",
+          "$ref": "#/definitions/Period"
+        }
+      }
+    },
+    "Address": {
+      "type": "object",
+      "title": "Address",
+      "patternProperties": {
+        "^(countryName_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "properties": {
+        "postalCode": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "The postal code. For example, 94043.",
+          "title": "Postal code"
+        },
+        "countryName": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "The country name. For example, United States.",
+          "title": "Country name"
+        },
+        "streetAddress": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "The street address. For example, 1600 Amphitheatre Pkwy.",
+          "title": "Street address"
+        },
+        "region": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "The region. For example, CA.",
+          "title": "Region"
+        },
+        "locality": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "The locality. For example, Mountain View.",
+          "title": "Locality"
+        }
+      },
+      "description": "An address. This may be the legally registered address of the organization, or may be a correspondence address for this particular contracting process."
+    },
+    "Transaction": {
+      "title": "Transaction information",
+      "required": [
+        "id"
+      ],
+      "type": "object",
+      "properties": {
+        "payer": {
+          "$ref": "#/definitions/OrganizationReference",
+          "description": "An organization reference for the organization from which the funds in this transaction originate.",
+          "title": "Payer"
+        },
+        "source": {
+          "title": "Data source",
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Used to point either to a corresponding Fiscal Data Package, IATI file, or machine or human-readable source where users can find further information on the budget line item identifiers, or project identifiers, provided here.",
+          "format": "uri"
+        },
+        "amount": {
+          "deprecated": {
+            "deprecatedVersion": "1.1",
+            "description": "This field has been replaced by the `transaction.value` field for consistency with the use of value and amount elsewhere in the standard."
+          },
+          "title": "Amount",
+          "description": "(Deprecated in 1.1. Use transaction.value instead) The value of the transaction. A negative value indicates a refund or correction.",
+          "$ref": "#/definitions/Value"
+        },
+        "receiverOrganization": {
+          "deprecated": {
+            "deprecatedVersion": "1.1",
+            "description": "This field has been replaced by the `transaction.payee` field to resolve ambiguity arising from 'receiver' being interpreted as relating to the goods or services procured rather than the flow of funds between the parties."
+          },
+          "title": "Receiver organization",
+          "description": "(Deprecated in 1.1. Use transaction.payee instead). The Organization Identifier for the organization which receives the funds in this transaction. Expressed following the Organizational Identifier standard - consult the documentation and the codelist.",
+          "$ref": "#/definitions/Identifier"
+        },
+        "value": {
+          "$ref": "#/definitions/Value",
+          "description": "The value of the transaction.",
+          "title": "Value"
+        },
+        "uri": {
+          "title": "Linked spending information",
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "A URI pointing directly to a machine-readable record about this spending transaction.",
+          "format": "uri"
+        },
+        "payee": {
+          "$ref": "#/definitions/OrganizationReference",
+          "description": "An organization reference for the organization which receives the funds in this transaction.",
+          "title": "Payee"
+        },
+        "providerOrganization": {
+          "deprecated": {
+            "deprecatedVersion": "1.1",
+            "description": "This field has been replaced by the `transaction.payer` field to resolve ambiguity arising from 'provider' being interpreted as relating to the goods or services procured rather than the flow of funds between the parties."
+          },
+          "title": "Provider organization",
+          "description": "(Deprecated in 1.1. Use transaction.payer instead.) The Organization Identifier for the organization from which the funds in this transaction originate. Expressed following the Organizational Identifier standard - consult the documentation and the codelist.",
+          "$ref": "#/definitions/Identifier"
+        },
+        "date": {
+          "title": "Date",
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "The date of the transaction",
+          "format": "date-time"
+        },
+        "id": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "integer"
+          ],
+          "description": "A unique identifier for this transaction. This identifier should be possible to cross-reference against the provided data source. For IATI this is the transaction reference.",
+          "title": "ID"
+        }
+      },
+      "description": "A spending transaction related to the contracting process. Draws upon the data models of the [Fiscal Data Package](http://fiscal.dataprotocols.org/) and the [International Aid Transparency Initiative](http://iatistandard.org/activity-standard/iati-activities/iati-activity/transaction/) and should be used to cross-reference to more detailed information held using a Fiscal Data Package, IATI file, or to provide enough information to allow a user to manually or automatically cross-reference with some other published source of transactional spending data."
+    },
+    "Auction": {
+      "descritpion": "Auction object which shows all auction properties of lots and tender",
+      "type": "object",
+      "properties": {
+        "url": {
+          "type": "string",
+          "descritpion": "Url for auction",
+          "title": "Auction"
+        },
+        "minimalStep": {
+          "$ref": "#/definitions/Value",
+          "descritpion": "Minimal step for this auction",
+          "title": "Minimal Step"
+        },
+        "period": {
+          "$ref": "#/definitions/Period",
+          "descritpion": "Period when Auction is conducted",
+          "title": "Auction Period"
+        }
+      },
+      "title": "Auction"
+    },
+    "Milestone": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "patternProperties": {
+        "^(title_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "^(description_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "properties": {
+        "status": {
+          "codelist": "milestoneStatus.csv",
+          "description": "The status that was realized on the date provided in dateModified, drawn from the [milestoneStatus codelist](http://standard.open-contracting.org/latest/en/schema/codelists/#milestone-status).",
+          "title": "Status",
+          "enum": [
+            "scheduled",
+            "met",
+            "notMet",
+            "partiallyMet",
+            null
+          ],
+          "type": [
+            "string",
+            "null"
+          ],
+          "openCodelist": false
+        },
+        "documents": {
+          "description": "List of documents associated with this milestone (Deprecated in 1.1).",
+          "title": "Documents",
+          "deprecated": {
+            "deprecatedVersion": "1.1",
+            "description": "Inclusion of documents at the milestone level is now deprecated. Documentation should be attached in the tender, award, contract or implementation sections, and titles and descriptions used to highlight the related milestone. Publishers who wish to continue to provide documents at the milestone level should explicitly declare this by using the milestone documents extension."
+          },
+          "items": {
+            "$ref": "#/definitions/Document"
+          },
+          "uniqueItems": true,
+          "type": "array"
+        },
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "A description of the milestone.",
+          "title": "Description"
+        },
+        "title": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Milestone title",
+          "title": "Title"
+        },
+        "dueDate": {
+          "title": "Due date",
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "The date the milestone is due.",
+          "format": "date-time"
+        },
+        "code": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Milestone codes can be used to track specific events that take place for a particular kind of contracting process. For example, a code of 'approvalLetter' could be used to allow applications to understand this milestone represents the date an approvalLetter is due or signed. Milestone codes is an open codelist, and codes should be agreed among data producers and the applications using that data.",
+          "title": "Milestone code"
+        },
+        "id": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "integer"
+          ],
+          "description": "A local identifier for this milestone, unique within this block. This field is used to keep track of multiple revisions of a milestone through the compilation from release to record mechanism.",
+          "title": "ID"
+        },
+        "dateMet": {
+          "format": "date-time",
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "The date on which the milestone was met.",
+          "title": "Date met"
+        },
+        "type": {
+          "title": "Milestone type",
+          "codelist": "milestoneType.csv",
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "The type of milestone, drawn from an extended [milestoneType codelist](http://standard.open-contracting.org/latest/en/schema/codelists/#milestone-type).",
+          "openCodelist": true
+        },
+        "dateModified": {
+          "title": "Date modified",
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "The date the milestone was last reviewed or modified and the status was altered or confirmed to still be correct.",
+          "format": "date-time"
+        }
+      },
+      "title": "Milestone"
+    },
+    "Budget": {
+      "type": "object",
+      "title": "Budget information",
+      "patternProperties": {
+        "^(source_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "^(project_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "^(description_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "properties": {
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "A short free text description of the budget source. May be used to provide the title of the budget line, or the programme used to fund this project.",
+          "title": "Budget Source"
+        },
+        "projectID": {
+          "type": [
+            "string",
+            "integer",
+            "null"
+          ],
+          "description": "An external identifier for the project that this contracting process forms part of, or is funded via (if applicable). Some organizations maintain a registry of projects, and the data should use the identifier from the relevant registry of projects.",
+          "title": "Project identifier"
+        },
+        "uri": {
+          "title": "Linked budget information",
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "A URI pointing directly to a machine-readable record about the budget line-item or line-items that fund this contracting process. Information may be provided in a range of formats, including using IATI, the Open Fiscal Data Standard or any other standard which provides structured data on budget sources. Human readable documents can be included using the planning.documents block.",
+          "format": "uri"
+        },
+        "project": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "The name of the project that through which this contracting process is funded (if applicable). Some organizations maintain a registry of projects, and the data should use the name by which the project is known in that registry. No translation option is offered for this string, as translated values can be provided in third-party data, linked from the data source above.",
+          "title": "Project title"
+        },
+        "source": {
+          "deprecated": {
+            "deprecatedVersion": "1.1",
+            "description": "The budget data source field was intended to link to machine-readable data about the budget for a contracting process, but has been widely mis-used to provide free-text descriptions of budget providers. As a result, it has been removed from version 1.1. budget/uri can be used to provide a link to machine-readable budget information, and budget/description can be used to provide human-readable information on the budget source."
+          },
+          "title": "Data Source",
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "(Deprecated in 1.1) Used to point either to a corresponding Budget Data Package, or to a machine or human-readable source where users can find further information on the budget line item identifiers, or project identifiers, provided here.",
+          "format": "uri"
+        },
+        "amount": {
+          "title": "Amount",
+          "description": "The value reserved in the budget for this contracting process. A negative value indicates anticipated income to the budget as a result of this contracting process, rather than expenditure. Where the budget is drawn from multiple sources, the budget breakdown extension can be used.",
+          "$ref": "#/definitions/Value"
+        },
+        "id": {
+          "type": [
+            "string",
+            "integer",
+            "null"
+          ],
+          "description": "An identifier for the budget line item which provides funds for this contracting process. This identifier should be possible to cross-reference against the provided data source.",
+          "title": "ID"
+        }
+      },
+      "description": "This section contain information about the budget line, and associated projects, through which this contracting process is funded. It draws upon data model of the [Fiscal Data Package](http://fiscal.dataprotocols.org/), and should be used to cross-reference to more detailed information held using a Budget Data Package, or, where no linked Budget Data Package is available, to provide enough information to allow a user to manually or automatically cross-reference with another published source of budget and project information."
+    },
+    "Value": {
+      "type": "object",
+      "properties": {
+        "currency": {
+          "codelist": "currency.csv",
+          "description": "The currency for each amount should always be specified using the uppercase 3-letter currency code from ISO4217.",
+          "title": "Currency",
+          "enum": [
+            "ADP",
+            "AED",
+            "AFA",
+            "AFN",
+            "ALK",
+            "ALL",
+            "AMD",
+            "ANG",
+            "AOA",
+            "AOK",
+            "AON",
+            "AOR",
+            "ARA",
+            "ARP",
+            "ARS",
+            "ARY",
+            "ATS",
+            "AUD",
+            "AWG",
+            "AYM",
+            "AZM",
+            "AZN",
+            "BAD",
+            "BAM",
+            "BBD",
+            "BDT",
+            "BEC",
+            "BEF",
+            "BEL",
+            "BGJ",
+            "BGK",
+            "BGL",
+            "BGN",
+            "BHD",
+            "BIF",
+            "BMD",
+            "BND",
+            "BOB",
+            "BOP",
+            "BOV",
+            "BRB",
+            "BRC",
+            "BRE",
+            "BRL",
+            "BRN",
+            "BRR",
+            "BSD",
+            "BTN",
+            "BUK",
+            "BWP",
+            "BYB",
+            "BYN",
+            "BYR",
+            "BZD",
+            "CAD",
+            "CDF",
+            "CHC",
+            "CHE",
+            "CHF",
+            "CHW",
+            "CLF",
+            "CLP",
+            "CNY",
+            "COP",
+            "COU",
+            "CRC",
+            "CSD",
+            "CSJ",
+            "CSK",
+            "CUC",
+            "CUP",
+            "CVE",
+            "CYP",
+            "CZK",
+            "DDM",
+            "DEM",
+            "DJF",
+            "DKK",
+            "DOP",
+            "DZD",
+            "ECS",
+            "ECV",
+            "EEK",
+            "EGP",
+            "ERN",
+            "ESA",
+            "ESB",
+            "ESP",
+            "ETB",
+            "EUR",
+            "FIM",
+            "FJD",
+            "FKP",
+            "FRF",
+            "GBP",
+            "GEK",
+            "GEL",
+            "GHC",
+            "GHP",
+            "GHS",
+            "GIP",
+            "GMD",
+            "GNE",
+            "GNF",
+            "GNS",
+            "GQE",
+            "GRD",
+            "GTQ",
+            "GWE",
+            "GWP",
+            "GYD",
+            "HKD",
+            "HNL",
+            "HRD",
+            "HRK",
+            "HTG",
+            "HUF",
+            "IDR",
+            "IEP",
+            "ILP",
+            "ILR",
+            "ILS",
+            "INR",
+            "IQD",
+            "IRR",
+            "ISJ",
+            "ISK",
+            "ITL",
+            "JMD",
+            "JOD",
+            "JPY",
+            "KES",
+            "KGS",
+            "KHR",
+            "KMF",
+            "KPW",
+            "KRW",
+            "KWD",
+            "KYD",
+            "KZT",
+            "LAJ",
+            "LAK",
+            "LBP",
+            "LKR",
+            "LRD",
+            "LSL",
+            "LSM",
+            "LTL",
+            "LTT",
+            "LUC",
+            "LUF",
+            "LUL",
+            "LVL",
+            "LVR",
+            "LYD",
+            "MAD",
+            "MDL",
+            "MGA",
+            "MGF",
+            "MKD",
+            "MLF",
+            "MMK",
+            "MNT",
+            "MOP",
+            "MRO",
+            "MTL",
+            "MTP",
+            "MUR",
+            "MVQ",
+            "MVR",
+            "MWK",
+            "MXN",
+            "MXP",
+            "MXV",
+            "MYR",
+            "MZE",
+            "MZM",
+            "MZN",
+            "NAD",
+            "NGN",
+            "NIC",
+            "NIO",
+            "NLG",
+            "NOK",
+            "NPR",
+            "NZD",
+            "OMR",
+            "PAB",
+            "PEH",
+            "PEI",
+            "PEN",
+            "PES",
+            "PGK",
+            "PHP",
+            "PKR",
+            "PLN",
+            "PLZ",
+            "PTE",
+            "PYG",
+            "QAR",
+            "RHD",
+            "ROK",
+            "ROL",
+            "RON",
+            "RSD",
+            "RUB",
+            "RUR",
+            "RWF",
+            "SAR",
+            "SBD",
+            "SCR",
+            "SDD",
+            "SDG",
+            "SDP",
+            "SEK",
+            "SGD",
+            "SHP",
+            "SIT",
+            "SKK",
+            "SLL",
+            "SOS",
+            "SRD",
+            "SRG",
+            "SSP",
+            "STD",
+            "SUR",
+            "SVC",
+            "SYP",
+            "SZL",
+            "THB",
+            "TJR",
+            "TJS",
+            "TMM",
+            "TMT",
+            "TND",
+            "TOP",
+            "TPE",
+            "TRL",
+            "TRY",
+            "TTD",
+            "TWD",
+            "TZS",
+            "UAH",
+            "UAK",
+            "UGS",
+            "UGW",
+            "UGX",
+            "USD",
+            "USN",
+            "USS",
+            "UYI",
+            "UYN",
+            "UYP",
+            "UYU",
+            "UZS",
+            "VEB",
+            "VEF",
+            "VNC",
+            "VND",
+            "VUV",
+            "WST",
+            "XAF",
+            "XAG",
+            "XAU",
+            "XBA",
+            "XBB",
+            "XBC",
+            "XBD",
+            "XCD",
+            "XDR",
+            "XEU",
+            "XFO",
+            "XFU",
+            "XOF",
+            "XPD",
+            "XPF",
+            "XPT",
+            "XRE",
+            "XSU",
+            "XTS",
+            "XUA",
+            "XXX",
+            "YDD",
+            "YER",
+            "YUD",
+            "YUM",
+            "YUN",
+            "ZAL",
+            "ZAR",
+            "ZMK",
+            "ZMW",
+            "ZRN",
+            "ZRZ",
+            "ZWC",
+            "ZWD",
+            "ZWL",
+            "ZWN",
+            "ZWR",
+            null
+          ],
+          "type": [
+            "string",
+            "null"
+          ],
+          "openCodelist": false
+        },
+        "amount": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "description": "Amount as a number.",
+          "title": "Amount"
+        }
+      },
+      "title": "Value"
+    },
+    "Item": {
+      "description": "A good, service, or work to be contracted.",
+      "title": "Item",
+      "required": [
+        "id"
+      ],
+      "patternProperties": {
+        "^(description_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "A description of the goods, services to be provided.",
+          "title": "Description"
+        },
+        "classification": {
+          "title": "Classification",
+          "description": "The primary classification for the item. See the [itemClassificationScheme](http://standard.open-contracting.org/latest/en/schema/codelists/#item-classification-scheme) to identify preferred classification lists, including CPV and GSIN.",
+          "$ref": "#/definitions/Classification"
+        },
+        "additionalClassifications": {
+          "description": "An array of additional classifications for the item. See the [itemClassificationScheme](http://standard.open-contracting.org/latest/en/schema/codelists/#item-classification-scheme) codelist for common options to use in OCDS. This may also be used to present codes from an internal classification scheme.",
+          "title": "Additional classifications",
+          "items": {
+            "$ref": "#/definitions/Classification"
+          },
+          "uniqueItems": true,
+          "type": "array",
+          "wholeListMerge": true
+        },
+        "id": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "integer"
+          ],
+          "description": "A local identifier to reference and merge the items by. Must be unique within a given array of items.",
+          "title": "ID"
+        },
+        "unit": {
+          "type": "object",
+          "title": "Unit",
+          "patternProperties": {
+            "^(name_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "properties": {
+            "id": {
+              "versionId": true,
+              "type": [
+                "string",
+                "null"
+              ],
+              "description": "The identifier from the codelist referenced in the scheme property. Check the codelist for details of how to find and use identifiers from the scheme in use.",
+              "title": "ID"
+            },
+            "scheme": {
+              "title": "Scheme",
+              "codelist": "unitClassificationScheme.csv",
+              "type": [
+                "string",
+                "null"
+              ],
+              "description": "The list from which units of measure identifiers are taken. This should be an entry from the options available in the [unitClassificationScheme](http://standard.open-contracting.org/latest/en/schema/codelists/#unit-classification-scheme) codelist. Use of the scheme 'UNCEFACT' for the UN/CEFACT Recommendation 20 list of 'Codes for Units of Measure Used in International Trade' is recommended, although other options are available.",
+              "openCodelist": true
+            },
+            "name": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "description": "Name of the unit.",
+              "title": "Name"
+            },
+            "value": {
+              "title": "Value",
+              "description": "The monetary value of a single unit.",
+              "$ref": "#/definitions/Value"
+            },
+            "uri": {
+              "title": "URI",
+              "type": [
+                "string",
+                "null"
+              ],
+              "description": "If the scheme used provide a machine-readable URI for this unit of measure, this can be given.",
+              "format": "uri"
+            }
+          },
+          "description": "A description of the unit in which the supplies, services or works are provided (e.g. hours, kilograms) and the unit-price. For comparability, an established list of units can be used.  "
+        },
+        "quantity": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "description": "The number of units required",
+          "title": "Quantity"
+        }
+      }
+    },
+    "Contract": {
+      "description": "Information regarding the signed contract between the buyer and supplier(s).",
+      "title": "Contract",
+      "required": [
+        "id",
+        "awardID"
+      ],
+      "patternProperties": {
+        "^(title_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "^(description_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "type": "object",
+      "properties": {
+        "status": {
+          "codelist": "contractStatus.csv",
+          "description": "The current status of the contract. Drawn from the [contractStatus codelist](http://standard.open-contracting.org/latest/en/schema/codelists/#contract-status)",
+          "title": "Contract status",
+          "enum": [
+            "pending",
+            "active",
+            "cancelled",
+            "terminated",
+            null
+          ],
+          "type": [
+            "string",
+            "null"
+          ],
+          "openCodelist": false
+        },
+        "amendment": {
+          "deprecated": {
+            "deprecatedVersion": "1.1",
+            "description": "The single amendment object has been deprecated in favour of including amendments in an amendments (plural) array."
+          },
+          "title": "Amendment",
+          "description": "The use of individual amendment objects has been deprecated. From OCDS 1.1 information should be provided in the amendments array.",
+          "$ref": "#/definitions/Amendment"
+        },
+        "amendments": {
+          "items": {
+            "$ref": "#/definitions/Amendment"
+          },
+          "type": "array",
+          "description": "A contract amendment is a formal change to, or extension of, a contract, and generally involves the publication of a new contract notice/release, or some other documents detailing the change. The rationale and a description of the changes made can be provided here.",
+          "title": "Amendments"
+        },
+        "documents": {
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/definitions/Document"
+          },
+          "type": "array",
+          "description": "All documents and attachments related to the contract, including any notices.",
+          "title": "Documents"
+        },
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Contract description",
+          "title": "Contract description"
+        },
+        "title": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Contract title",
+          "title": "Contract title"
+        },
+        "implementation": {
+          "title": "Implementation",
+          "description": "Information related to the implementation of the contract in accordance with the obligations laid out therein.",
+          "$ref": "#/definitions/Implementation"
+        },
+        "items": {
+          "description": "The goods, services, and any intangible outcomes in this contract. Note: If the items are the same as the award do not repeat.",
+          "title": "Items contracted",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/definitions/Item"
+          },
+          "uniqueItems": true,
+          "type": "array"
+        },
+        "period": {
+          "title": "Period",
+          "description": "The start and end date for the contract.",
+          "$ref": "#/definitions/Period"
+        },
+        "value": {
+          "title": "Value",
+          "description": "The total value of this contract. A negative value indicates that the contract will involve payments from the supplier to the buyer (commonly used in concession contracts).",
+          "$ref": "#/definitions/Value"
+        },
+        "milestones": {
+          "items": {
+            "$ref": "#/definitions/Milestone"
+          },
+          "type": "array",
+          "description": "A list of milestones associated with the finalization of this contract.",
+          "title": "Contract milestones"
+        },
+        "dateSigned": {
+          "title": "Date signed",
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "The date the contract was signed. In the case of multiple signatures, the date of the last signature.",
+          "format": "date-time"
+        },
+        "awardID": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "integer"
+          ],
+          "description": "The award.id against which this contract is being issued.",
+          "title": "Award ID"
+        },
+        "relatedProcesses": {
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/definitions/RelatedProcess"
+          },
+          "type": "array",
+          "description": "If this process is followed by one or more contracting processes, represented under a separate open contracting identifier (ocid) then details of the related process can be provided here. This is commonly used to point to subcontracts, or to renewal and replacement processes for this contract.",
+          "title": "Related processes"
+        },
+        "id": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "integer"
+          ],
+          "description": "The identifier for this contract. It must be unique and cannot change within its Open Contracting Process (defined by a single ocid). See the [identifier guidance](http://standard.open-contracting.org/latest/en/schema/identifiers/) for further details.",
+          "title": "Contract ID"
+        }
+      }
+    },
+    "Organization": {
+      "type": "object",
+      "title": "Organization",
+      "patternProperties": {
+        "^(name_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "properties": {
+        "additionalIdentifiers": {
+          "description": "A list of additional / supplemental identifiers for the organization or participant, using the [organization identifier guidance](http://standard.open-contracting.org/latest/en/schema/identifiers/). This could be used to provide an internally used identifier for this organization in addition to the primary legal entity identifier.",
+          "title": "Additional identifiers",
+          "items": {
+            "$ref": "#/definitions/Identifier"
+          },
+          "uniqueItems": true,
+          "type": "array",
+          "wholeListMerge": true
+        },
+        "name": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "A common name for this organization or other participant in the contracting process. The identifier object provides an space for the formal legal name, and so this may either repeat that value, or could provide the common name by which this organization or entity is known. This field may also include details of the department or sub-unit involved in this contracting process.",
+          "title": "Common name"
+        },
+        "roles": {
+          "codelist": "partyRole.csv",
+          "description": "The party's role(s) in the contracting process. Role(s) should be taken from the [partyRole codelist](http://standard.open-contracting.org/latest/en/schema/codelists/#party-role). Values from the provided codelist should be used wherever possible, though extended values can be provided if the codelist does not have a relevant code.",
+          "title": "Party roles",
+          "items": {
+            "type": "string"
+          },
+          "type": [
+            "array",
+            "null"
+          ],
+          "openCodelist": true
+        },
+        "additionalContactPoints": {
+          "items": {
+            "$ref": "#/definitions/ContactPoint"
+          },
+          "type": "array",
+          "description": "List of additional contact points for the organization",
+          "title": "Additional contact points"
+        },
+        "details": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "description": "Additional classification information about parties can be provided using partyDetail extensions that define particular properties and classification schemes. ",
+          "title": "Details"
+        },
+        "address": {
+          "$ref": "#/definitions/Address"
+        },
+        "contactPoint": {
+          "$ref": "#/definitions/ContactPoint"
+        },
+        "identifier": {
+          "title": "Primary identifier",
+          "description": "The primary identifier for this organization or participant. Identifiers that uniquely pick out a legal entity should be preferred. Consult the [organization identifier guidance](http://standard.open-contracting.org/latest/en/schema/identifiers/) for the preferred scheme and identifier to use.",
+          "$ref": "#/definitions/Identifier"
+        },
+        "id": {
+          "type": [
+            "string"
+          ],
+          "description": "The ID used for cross-referencing to this party from other sections of the release. This field may be built with the following structure {identifier.scheme}-{identifier.id}(-{department-identifier}).",
+          "title": "Entity ID"
+        }
+      },
+      "description": "A party (organization)"
+    },
+    "Identifier": {
+      "type": "object",
+      "patternProperties": {
+        "^(legalName_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "properties": {
+        "scheme": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Organization identifiers should be drawn from an existing organization identifier list. The scheme field is used to indicate the list or register from which the identifier is drawn. This value should be drawn from the [Organization Identifier Scheme](http://standard.open-contracting.org/latest/en/schema/codelists/#organization-identifier-scheme) codelist.",
+          "title": "Scheme"
+        },
+        "legalName": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "The legally registered name of the organization.",
+          "title": "Legal Name"
+        },
+        "id": {
+          "type": [
+            "string",
+            "integer",
+            "null"
+          ],
+          "description": "The identifier of the organization in the selected scheme.",
+          "title": "ID"
+        },
+        "uri": {
+          "title": "URI",
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "A URI to identify the organization, such as those provided by [Open Corporates](http://www.opencorporates.com) or some other relevant URI provider. This is not for listing the website of the organization: that can be done through the URL field of the Organization contact point.",
+          "format": "uri"
+        }
+      },
+      "title": "Identifier"
+    },
+    "Amendment": {
+      "type": "object",
+      "title": "Amendment",
+      "patternProperties": {
+        "^(rationale_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "properties": {
+        "amendsReleaseID": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Provide the identifier (release.id) of the OCDS release (from this contracting process) that provides the values for this contracting process **before** the amendment was made.",
+          "title": "Amended release (identifier)"
+        },
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "A free text, or semi-structured, description of the changes made in this amendment.",
+          "title": "Description"
+        },
+        "releaseID": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Provide the identifier (release.id) of the OCDS release (from this contracting process) that provides the values for this contracting process **after** the amendment was made.",
+          "title": "Amending release (identifier)"
+        },
+        "rationale": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "An explanation for the amendment.",
+          "title": "Rationale"
+        },
+        "date": {
+          "title": "Amendment date",
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "The date of this amendment.",
+          "format": "date-time"
+        },
+        "changes": {
+          "items": {
+            "type": "object",
+            "properties": {
+              "property": {
+                "type": "string",
+                "description": "The property name that has been changed relative to the place the amendment is. For example if the contract value has changed, then the property under changes within the contract.amendment would be value.amount. (Deprecated in 1.1)",
+                "title": "Property"
+              },
+              "former_value": {
+                "type": [
+                  "string",
+                  "number",
+                  "integer",
+                  "array",
+                  "object",
+                  "null"
+                ],
+                "description": "The previous value of the changed property, in whatever type the property is. (Deprecated in 1.1)",
+                "title": "Former Value"
+              }
+            }
+          },
+          "title": "Amended fields",
+          "type": "array",
+          "description": "An array change objects describing the fields changed, and their former values. (Deprecated in 1.1)",
+          "deprecated": {
+            "deprecatedVersion": "1.1",
+            "description": "A free-text or semi-structured string describing the changes made in each amendment can be provided in the amendment.description field. To provide structured information on the fields that have changed, publishers should provide releases indicating the state of the contracting process before and after the amendment.  "
+          }
+        },
+        "id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "An identifier for this amendment: often the amendment number",
+          "title": "ID"
+        }
+      },
+      "description": "Amendment information"
+    },
+    "Classification": {
+      "type": "object",
+      "patternProperties": {
+        "^(description_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "properties": {
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "A textual description or title for the code.",
+          "title": "Description"
+        },
+        "scheme": {
+          "title": "Scheme",
+          "codelist": "itemClassificationScheme.csv",
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "An classification should be drawn from an existing scheme or list of codes. This field is used to indicate the scheme/codelist from which the classification is drawn. For line item classifications, this value should represent an known [Item Classification Scheme](http://standard.open-contracting.org/latest/en/schema/codelists/#item-classification-scheme) wherever possible.",
+          "openCodelist": true
+        },
+        "id": {
+          "type": [
+            "string",
+            "integer",
+            "null"
+          ],
+          "description": "The classification code drawn from the selected scheme.",
+          "title": "ID"
+        },
+        "uri": {
+          "title": "URI",
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "A URI to identify the code. In the event individual URIs are not available for items in the identifier scheme this value should be left blank.",
+          "format": "uri"
+        }
+      },
+      "title": "Classification"
+    },
+    "Period": {
+      "title": "Period",
+      "type": "object",
+      "properties": {
+        "startDate": {
+          "title": "Start date",
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "The start date for the period. When known, a precise start date must always be provided.",
+          "format": "date-time"
+        },
+        "endDate": {
+          "title": "End date",
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "The end date for the period. When known, a precise end date must always be provided.",
+          "format": "date-time"
+        },
+        "durationInDays": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "description": "The maximum duration of this period in days. A user interface may wish to collect or display this data in months or years as appropriate, but should convert it into days when completing this field. This field can be used when exact dates are not known.  Where a startDate and endDate are given, this field is optional, and should reflect the difference between those two days. Where a startDate and maxExtentDate are given, this field is optional, and should reflect the difference between startDate and maxExtentDate.",
+          "title": "Duration (days)"
+        },
+        "maxExtentDate": {
+          "format": "date-time",
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "The period cannot be extended beyond this date. This field is optional, and can be used to express the maximum available data for extension or renewal of this period.",
+          "title": "Maximum extent"
+        }
+      },
+      "description": "    "
+    },
+    "Planning": {
+      "type": "object",
+      "title": "Planning",
+      "patternProperties": {
+        "^(rationale_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "properties": {
+        "documents": {
+          "items": {
+            "$ref": "#/definitions/Document"
+          },
+          "type": "array",
+          "description": "A list of documents related to the planning process.",
+          "title": "Documents"
+        },
+        "budget": {
+          "$ref": "#/definitions/Budget"
+        },
+        "rationale": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "The rationale for the procurement provided in free text. More detail can be provided in an attached document.",
+          "title": "Rationale"
+        },
+        "milestones": {
+          "items": {
+            "$ref": "#/definitions/Milestone"
+          },
+          "type": "array",
+          "description": "A list of milestones associated with the planning stage.",
+          "title": "Planning milestones"
+        }
+      },
+      "description": "Information from the planning phase of the contracting process. Note that many other fields may be filled in a planning release, in the appropriate fields in other schema sections, these would likely be estimates at this stage e.g. totalValue in tender"
+    },
+    "Tender": {
+      "description": "Data regarding tender process - publicly inviting prospective contractors to submit bids for evaluation and selecting a winner or winners.",
+      "title": "Tender",
+      "required": [
+        "id"
+      ],
+      "patternProperties": {
+        "^(title_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "^(submissionMethodDetails_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "^(procurementMethodRationale_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "^(eligibilityCriteria_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "^(awardCriteriaDetails_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "^(description_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "type": "object",
+      "properties": {
+        "procurementMethod": {
+          "codelist": "method.csv",
+          "description": "Specify tendering method using the [method codelist](http://standard.open-contracting.org/latest/en/schema/codelists/#method). This is a closed codelist. Local method types should be mapped to this list.",
+          "title": "Procurement method",
+          "enum": [
+            "open",
+            "selective",
+            "limited",
+            "direct",
+            null
+          ],
+          "type": [
+            "string",
+            "null"
+          ],
+          "openCodelist": false
+        },
+        "amendment": {
+          "deprecated": {
+            "deprecatedVersion": "1.1",
+            "description": "The single amendment object has been deprecated in favour of including amendments in an amendments (plural) array."
+          },
+          "title": "Amendment",
+          "description": "The use of individual amendment objects has been deprecated. From OCDS 1.1 information should be provided in the amendments array.",
+          "$ref": "#/definitions/Amendment"
+        },
+        "awardPeriod": {
+          "title": "Evaluation and award period",
+          "description": "The period for decision making regarding the contract award. The end date should be the date on which an award decision is due to be finalized. The start date is optional, and may be used to indicate the start of an evaluation period.",
+          "$ref": "#/definitions/Period"
+        },
+        "mainProcurementCategory": {
+          "codelist": "procurementCategory.csv",
+          "description": "The primary category describing the main object of this contracting process from the [procurementCategory](http://standard.open-contracting.org/latest/en/schema/codelists/#procurement-category) codelist. This is a closed codelist. Local classifications should be mapped to this list.",
+          "title": "Main procurement category",
+          "enum": [
+            "goods",
+            "works",
+            "services",
+            null
+          ],
+          "type": [
+            "string",
+            "null"
+          ],
+          "openCodelist": false
+        },
+        "enquiryPeriod": {
+          "title": "Enquiry period",
+          "description": "The period during which potential bidders may submit questions and requests for clarification to the entity managing procurement. Details of how to submit enquiries should be provided in attached notices, or in submissionMethodDetails. Structured dates for when responses to questions will be made can be provided using tender milestones.",
+          "$ref": "#/definitions/Period"
+        },
+        "minValue": {
+          "title": "Minimum value",
+          "description": "The minimum estimated value of the procurement.  A negative value indicates that the contracting process may involve payments from the supplier to the buyer (commonly used in concession contracts).",
+          "$ref": "#/definitions/Value"
+        },
+        "numberOfTenderers": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "description": "The number of parties who submit a bid.",
+          "title": "Number of tenderers"
+        },
+        "awardCriteria": {
+          "title": "Award criteria",
+          "codelist": "awardCriteria.csv",
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Specify the award criteria for the procurement, using the [award criteria codelist](http://standard.open-contracting.org/latest/en/schema/codelists/#award-criteria)",
+          "openCodelist": true
+        },
+        "tenderers": {
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/definitions/OrganizationReference"
+          },
+          "type": "array",
+          "description": "All parties who submit a bid on a tender. More detailed information on bids and the bidding organization can be provided using the optional bid extension.",
+          "title": "Tenderers"
+        },
+        "id": {
+          "minLength": 1,
+          "versionId": true,
+          "type": [
+            "string",
+            "integer"
+          ],
+          "description": "An identifier for this tender process. This may be the same as the ocid, or may be drawn from an internally held identifier for this tender.",
+          "title": "Tender ID"
+        },
+        "tenderPeriod": {
+          "title": "Tender period",
+          "description": "The period when the tender is open for submissions. The end date is the closing date for tender submissions.",
+          "$ref": "#/definitions/Period"
+        },
+        "amendments": {
+          "items": {
+            "$ref": "#/definitions/Amendment"
+          },
+          "type": "array",
+          "description": "A tender amendment is a formal change to the tender, and generally involves the publication of a new tender notice/release. The rationale and a description of the changes made can be provided here.",
+          "title": "Amendments"
+        },
+        "documents": {
+          "items": {
+            "$ref": "#/definitions/Document"
+          },
+          "type": "array",
+          "description": "All documents and attachments related to the tender, including any notices. See the [documentType codelist](http://standard.open-contracting.org/latest/en/schema/codelists/#document-type) for details of potential documents to include. Common documents include official legal notices of tender, technical specifications, evaluation criteria, and, as a tender process progresses, clarifications and replies to queries.",
+          "title": "Documents"
+        },
+        "title": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "A title for this tender. This will often be used by applications as a headline to attract interest, and to help analysts understand the nature of this procurement.",
+          "title": "Tender title"
+        },
+        "procuringEntity": {
+          "title": "Procuring entity",
+          "description": "The entity managing the procurement. This may be different from the buyer who pays for, or uses, the items being procured.",
+          "$ref": "#/definitions/OrganizationReference"
+        },
+        "procurementMethodRationale": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Rationale for the chosen procurement method. This is especially important to provide a justification in the case of limited tenders or direct awards.",
+          "title": "Procurement method rationale"
+        },
+        "contractPeriod": {
+          "title": "Contract period",
+          "description": "The period over which the contract is estimated or required to be active. If the tender does not specify explicit dates, the duration field may be used.",
+          "$ref": "#/definitions/Period"
+        },
+        "status": {
+          "codelist": "tenderStatus.csv",
+          "description": "The current status of the tender based on the [tenderStatus codelist](http://standard.open-contracting.org/latest/en/schema/codelists/#tender-status)",
+          "title": "Tender status",
+          "enum": [
+            "planning",
+            "planned",
+            "active",
+            "cancelled",
+            "unsuccessful",
+            "complete",
+            "withdrawn",
+            null
+          ],
+          "type": [
+            "string",
+            "null"
+          ],
+          "openCodelist": false
+        },
+        "eligibilityCriteria": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "A description of any eligibility criteria for potential suppliers.",
+          "title": "Eligibility criteria"
+        },
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "A summary description of the tender. This should complement structured information provided using the items array. Descriptions should be short and easy to read. Avoid using ALL CAPS. ",
+          "title": "Tender description"
+        },
+        "procurementMethodDetails": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Additional detail on the procurement method used. This field may be used to provide the local name of the particular procurement method used.",
+          "title": "Procurement method details"
+        },
+        "additionalProcurementCategories": {
+          "codelist": "extendedProcurementCategory.csv",
+          "description": "Any additional categories which describe the objects of this contracting process, from the [extendedProcurementCategory](http://standard.open-contracting.org/latest/en/schema/codelists/#extended-procurement-category) codelist. This is an open codelist. Local categories can be included in this list.",
+          "title": "Additional procurement categories",
+          "items": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "type": [
+            "array",
+            "null"
+          ],
+          "openCodelist": true
+        },
+        "submissionMethod": {
+          "codelist": "submissionMethod.csv",
+          "description": "Specify the method by which bids must be submitted, in person, written, or electronic auction. Using the [submission method codelist](http://standard.open-contracting.org/latest/en/schema/codelists/#submission-method)",
+          "title": "Submission method",
+          "items": {
+            "type": "string"
+          },
+          "type": [
+            "array",
+            "null"
+          ],
+          "openCodelist": true
+        },
+        "milestones": {
+          "items": {
+            "$ref": "#/definitions/Milestone"
+          },
+          "type": "array",
+          "description": "A list of milestones associated with the tender.",
+          "title": "Milestones"
+        },
+        "submissionMethodDetails": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Any detailed or further information on the submission method. This may include the address, e-mail address or online service to which bids should be submitted, and any special requirements to be followed for submissions.",
+          "title": "Submission method details"
+        },
+        "items": {
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/definitions/Item"
+          },
+          "type": "array",
+          "description": "The goods and services to be purchased, broken into line items wherever possible. Items should not be duplicated, but a quantity of 2 specified instead.",
+          "title": "Items to be procured"
+        },
+        "awardCriteriaDetails": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Any detailed or further information on the award or selection criteria.",
+          "title": "Award criteria details"
+        },
+        "value": {
+          "title": "Value",
+          "description": "The total upper estimated value of the procurement. A negative value indicates that the contracting process may involve payments from the supplier to the buyer (commonly used in concession contracts).",
+          "$ref": "#/definitions/Value"
+        },
+        "auctions": {
+          "items": {
+            "$ref": "#/definitions/Auction"
+          },
+          "type": "array",
+          "descritpion": "Auctions of tender and lots",
+          "title": "Auctions"
+        },
+        "hasEnquiries": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "description": "A true/false field to indicate whether any enquiries were received during the tender process. Structured information on enquiries that were received, and responses to them, can be provided using the enquiries extension.",
+          "title": "Has enquiries?"
+        }
+      }
+    },
+    "ContactPoint": {
+      "type": "object",
+      "title": "Contact point",
+      "patternProperties": {
+        "^(name_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "properties": {
+        "name": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "The name of the contact person, department, or contact point, for correspondence relating to this contracting process.",
+          "title": "Name"
+        },
+        "url": {
+          "title": "URL",
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "A web address for the contact point/person.",
+          "format": "uri"
+        },
+        "telephone": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "The telephone number of the contact point/person. This should include the international dialing code.",
+          "title": "Telephone"
+        },
+        "faxNumber": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "The fax number of the contact point/person. This should include the international dialing code.",
+          "title": "Fax number"
+        },
+        "email": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "The e-mail address of the contact point/person.",
+          "title": "Email"
+        },
+        "availableLanguage": {
+          "enum": [
+            "uk",
+            "en",
+            "ru"
+          ],
+          "type": "string",
+          "description": "Specifies the language of communication",
+          "title": "Available language"
+        }
+      },
+      "description": "An person, contact point or department to contact in relation to this contracting process."
+    },
+    "RelatedProcess": {
+      "title": "Related Process",
+      "type": "object",
+      "properties": {
+        "scheme": {
+          "title": "Scheme",
+          "codelist": "relatedProcessScheme.csv",
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "The identification scheme used by this cross-reference from the [related process scheme codelist](http://standard.open-contracting.org/latest/en/schema/codelists/#related-process-scheme) codelist. When cross-referencing information also published using OCDS, an Open Contracting ID (ocid) should be used.",
+          "openCodelist": true
+        },
+        "relationship": {
+          "codelist": "relatedProcess.csv",
+          "description": "Specify the type of relationship using the [related process codelist](http://standard.open-contracting.org/latest/en/schema/codelists/#related-process).",
+          "title": "Relationship",
+          "items": {
+            "type": "string"
+          },
+          "type": [
+            "array",
+            "null"
+          ],
+          "openCodelist": true
+        },
+        "title": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "The title of the related process, where referencing an open contracting process, this field should match the tender/title field in the related process.",
+          "title": "Related process title"
+        },
+        "uri": {
+          "format": "uri",
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "A URI pointing to a machine-readable document, release or record package containing the identified related process.",
+          "title": "Related process URI"
+        },
+        "identifier": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "The identifier of the related process. When cross-referencing information also published using OCDS, this should be the Open Contracting ID (ocid).",
+          "title": "Identifier"
+        },
+        "id": {
+          "type": [
+            "string"
+          ],
+          "description": "A local identifier for this relationship, unique within this array.",
+          "title": "Relationship ID"
+        }
+      },
+      "description": "A reference to a related contracting process: generally one preceding or following on from the current process."
+    }
+  },
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "language": {
+      "default": "en",
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Specifies the default language of the data using either two-letter [ISO639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes), or extended [BCP47 language tags](http://www.w3.org/International/articles/language-tags/). The use of lowercase two-letter codes from [ISO639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) is strongly recommended.",
+      "title": "Release language"
+    },
+    "contracts": {
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/definitions/Contract"
+      },
+      "type": "array",
+      "description": "Information from the contract creation phase of the procurement process.",
+      "title": "Contracts"
+    },
+    "ocid": {
+      "minLength": 1,
+      "type": "string",
+      "description": "A globally unique identifier for this Open Contracting Process. Composed of a publisher prefix and an identifier for the contracting process. For more information see the [Open Contracting Identifier guidance](http://standard.open-contracting.org/latest/en/schema/identifiers/)",
+      "title": "Open Contracting ID"
+    },
+    "bids": {
+      "properties": {
+        "details": {
+          "items": {
+            "$ref": "#/definitions/Bid"
+          },
+          "type": "array",
+          "description": "An array of bids, providing information on the bidders, and where applicable, bid status, bid values and related documents. The extent to which this information can be disclosed varies from jurisdiction to jurisdiction.",
+          "title": "Bid details"
+        }
+      },
+      "type": "object",
+      "description": "A list of all bids placed in the tender with information about tenderers, their proposal and other qualification documentation.",
+      "title": "Bids"
+    },
+    "initiationType": {
+      "codelist": "initiationType.csv",
+      "description": "String specifying the type of initiation process used for this contract, taken from the [initiationType](http://standard.open-contracting.org/latest/en/schema/codelists/#initiation-type) codelist. Currently only tender is supported.",
+      "title": "Initiation type",
+      "enum": [
+        "tender"
+      ],
+      "type": "string",
+      "openCodelist": false
+    },
+    "date": {
+      "omitWhenMerged": true,
+      "title": "Release Date",
+      "type": "string",
+      "description": "The date this information was first released, or published.",
+      "format": "date-time"
+    },
+    "planning": {
+      "title": "Planning",
+      "description": "Information from the planning phase of the contracting process. This includes information related to the process of deciding what to contract, when and how.",
+      "$ref": "#/definitions/Planning"
+    },
+    "awards": {
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/definitions/Award"
+      },
+      "type": "array",
+      "description": "Information from the award phase of the contracting process. There may be more than one award per contracting process e.g. because the contract is split among different providers, or because it is a standing offer.",
+      "title": "Awards"
+    },
+    "parties": {
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/definitions/Organization"
+      },
+      "type": "array",
+      "description": "Information on the parties (organizations, economic operators and other participants) who are involved in the contracting process and their roles, e.g. buyer, procuring entity, supplier etc. Organization references elsewhere in the schema are used to refer back to this entries in this list.",
+      "title": "Parties"
+    },
+    "buyer": {
+      "title": "Buyer",
+      "description": "The buyer is the entity whose budget will be used to purchase the goods. This may be different from the procuring entity who may be specified in the tender data.",
+      "$ref": "#/definitions/OrganizationReference"
+    },
+    "tender": {
+      "title": "Tender",
+      "description": "The activities undertaken in order to enter into a contract.",
+      "$ref": "#/definitions/Tender"
+    },
+    "tag": {
+      "codelist": "releaseTag.csv",
+      "description": "One or more values from the [releaseTag codelist](http://standard.open-contracting.org/latest/en/schema/codelists/#release-tag). Tags may be used to filter release and to understand the kind of information that a release might contain.",
+      "title": "Release Tag",
+      "minItems": 1,
+      "items": {
+        "enum": [
+          "bid",
+          "planning",
+          "planningUpdate",
+          "tender",
+          "tenderAmendment",
+          "tenderUpdate",
+          "tenderCancellation",
+          "award",
+          "awardUpdate",
+          "awardCancellation",
+          "contract",
+          "contractUpdate",
+          "contractAmendment",
+          "implementation",
+          "implementationUpdate",
+          "contractTermination",
+          "compiled"
+        ],
+        "type": "string"
+      },
+      "type": "array",
+      "openCodelist": false
+    },
+    "relatedProcesses": {
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/definitions/RelatedProcess"
+      },
+      "type": "array",
+      "description": "If this process follows on from one or more prior process, represented under a separate open contracting identifier (ocid) then details of the related process can be provided here. This is commonly used to relate mini-competitions to their parent frameworks, full tenders to a pre-qualification phase, or individual tenders to a broad planning process.",
+      "title": "Related processes"
+    },
+    "id": {
+      "omitWhenMerged": true,
+      "title": "Release ID",
+      "type": "string",
+      "description": "An identifier for this particular release of information. A release identifier must be unique within the scope of its related contracting process (defined by a common ocid), and unique within any release package it appears in. A release identifier must not contain the # character.",
+      "minLength": 1
+    }
+  }
+}

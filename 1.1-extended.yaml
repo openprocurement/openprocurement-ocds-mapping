@@ -1,0 +1,276 @@
+pre-hooks:
+  - ". as $data|.items as $items | $data.awards=(.awards | map(. as $award | $award.items = if $data.lots then $items|map(select(.relatedLot == $award.lotID)) else $items end))"
+  - '. as $data | if $data.auctionPeriod then $data.auctions = (if $data.lots then $data.lots | map({"url": .auctionUrl, "minimalStep": .minimalStep, "period": .auctionPeriod, "relatedLot": .id}) else [{"url": $data.auctionUrl, "minimalStep": $data.minimalStep, "period": $data.auctionPeriod}] end) else $data end'
+  - '. as $data | if $data.bids then $data.bids = (if $data.lots then {"details": ([.bids as $bids| $bids | .[] as $bid| $bid | .lotValues[] as $value | $value + $bid|del(.lotValues)])} else {"details": $data.bids} end) else $data end'
+mapping:
+  id:
+    src: id
+  ocid:
+    src: tenderID
+  date:
+    src: dateModified
+  language:
+    src: language
+    default: uk
+  initiationType:
+    default:
+      - tender
+  parties:
+    src:
+      - procuringEntity
+      - "bids.details | [.[].tenderers[]]"
+    $ref: "#/definitions/organization"
+    transforms:
+      - uniq
+  buyer:
+    src: procuringEntity
+    $ref: "#/definitions/organizationReference"
+  awards:
+    src: awards
+    $ref: "#/definitions/award"
+  contracts:
+    src: contracts
+    $ref: "#/definitions/contract"
+  bids:
+    src: bids
+    $ref: "#/definitions/bids"
+
+  tender:
+    mapping:
+      status:
+        src: status
+        transforms: 
+        - '.|split(".")|first'
+      id:
+        src: id
+      title:
+        src: title
+      description:
+        src: description
+      auctions:
+        src: auctions
+        $ref: "#/definitions/auction"
+      items:
+        src: items
+        $ref: "#/definitions/item"
+      value:
+        src: value
+        $ref: "#/definitions/value"
+      procurementMethod:
+        src: procurementMethod
+      procurementMethodRationale:
+        src: procurementMethodRationale
+      awardCriteria:
+        src: awardCriteria
+      awardCriteriaDetails:
+        src: awardCriteriaDetails
+      submissionMethod:
+        src: 'submissionMethod'
+      submissionMethodDetails:
+        src: submissionMethodDetails
+      tenderPeriod:
+        src: tenderPeriod
+        $ref: "#/definitions/period"
+      enquiryPeriod:
+        src: enquiryPeriod
+        $ref: "#/definitions/period"
+      hasEnquiries:
+        src: hasEnquiries
+      eligibilityCriteria:
+        src: eligibilityCriteria
+      awardPeriod:
+        src: awardPeriod
+        $ref: "#/definitions/period"
+      procuringEntity:
+        src: procuringEntity
+        $ref: "#/definitions/organizationReference"
+      documents:
+        src: documents
+        $ref: "#/definitions/document"
+
+definitions:
+  document:
+    mapping:
+      title:
+        src: title
+      id:
+        src: id
+      documentType:
+        src: documentType
+      description:
+        src: description
+      url:
+        src: url
+      datePublished:
+        src: datePublished
+      dateModified:
+        src: dateModified
+      format:
+        src: format
+      language:
+        src: language
+  period:
+    mapping:
+      startDate:
+        src: startDate
+      endDate:
+        src: endDate
+  organizationReference:
+    mapping:
+      name:
+        src: name
+      id:
+        src: identifier.id
+  address:
+    mapping:
+      streetAddress:
+        src: streetAddress
+      locality:
+        src: locality
+      postalCode:
+        src: postalCode
+      countryName:
+        src: countryName
+  organization:
+    mapping:
+      identifier: 
+         src: identifier
+         $ref: "#/definitions/identifier"
+      additionalIdentifiers: 
+        src: additionalIdentifiers
+        $ref: "#/definitions/identifier"
+      name:
+        src: name
+      address:
+        src: address
+        $ref: "#/definitions/address"
+      additionalContactPoints:
+        src: additionalContactPoints
+        $ref: 
+
+  value:
+    mapping:
+      amount:
+        src: amount
+      currency:
+        src: currency
+  identifier:
+    mapping:
+      scheme:
+        src: scheme
+      id:
+        src: id
+      legalName:
+        src: legalName
+      uri:
+        src: uri
+  unit:
+    mapping:
+      name:
+        src: name
+      id:
+        src: code 
+  item:
+    mapping:
+      id:
+        src: id
+      description:
+        src: description
+      classification:
+        src: classification
+        $ref: "#/definitions/identifier"
+      additionalClassifications:
+        src: additionalClassifications
+        $ref: "#/definitions/identifier"
+      quantity:
+        src: quantity
+      unit:
+        src: unit
+        $ref: "#/definitions/unit"
+  award:
+    mapping:
+      id:
+        src: id
+      title:
+        src: title
+      description:
+        src: description
+      status:
+        src: status
+      date:
+        src: date
+      value:
+        src: value
+        $ref: "#/definitions/value"
+      suppliers:
+        src: suppliers
+        $ref: "#/definitions/organizationReference"
+      items:
+        src: items
+        $ref: "#/definitions/item"
+      contractPeriod:
+        src: contractPeriod
+        $ref: "#/definitions/period"
+      documents:
+        src: documents
+        $ref: "#/definitions/document"
+  contract:
+    mapping:
+      id:
+        src: id
+      title:
+        src: title
+      description:
+        src: description
+      status:
+        src: status
+      period:
+        src: period
+        $ref: "#/definitions/period"
+      value:
+        src: value
+        $ref: "#/definitions/value"
+      items:
+        src: items
+        $ref: "#/definitions/item"
+      dateSigned:
+        src: dateSigned
+      documents:
+        src: documents
+        $ref: "#/definitions/document"
+  auction:
+    mapping:
+      url:
+        src: url
+      period:
+        src: period
+        $ref: "#/definitions/period"
+      minimalStep:
+        src: minimalStep
+        $ref: "#/definitions/value"
+      relatedLot:
+        src: relatedLot
+  bid:
+    mapping:
+      id:
+        src: id
+      date:
+        src: date
+      status:
+        src: status
+        #tenderers:
+        #tesrc: tenderers
+        #te$ref: "#/definitions/organizationReference"
+      value:
+        src: value
+        $ref: "#/definitions/value"
+      documents:
+        src: documents
+        $ref: "#/definitions/document"
+      relatedLot:
+        src: relatedLot
+  bids:
+    mapping:
+      details:
+        src: details
+        $ref: "#/definitions/bid"
