@@ -6,17 +6,34 @@ from jsonschema import RefResolver
 from galleon import Mapper
 
 
-with open('test-data/tender-with-lots.json') as _in:
-    tender = json.load(_in)
-
-with open('schemas/1.1-extended-schema.json') as _in:
-    schema = json.load(_in)
+tender = json.loads(sys.stdin.read())
+mapping = {}
+schema = {}
 
 
-with open('mapping/1.1-pure.yaml') as _in:
-    mapping = yaml.load(_in)
+for name, file in zip(
+        ('pure', 'extended'),
+        ('mapping/1.1-pure.yaml', 'mapping/1.1-extended.yaml')
+        ):
+    with open(file) as _in:
+        mapping[name] = yaml.load(_in)
 
-resolver = RefResolver.from_schema(schema)
+for name, file in zip(
+        ('pure', 'extended'),
+        ('schemas/1.1-schema.json', 'schemas/1.1-extended-schema.json')
+        ):
+    with open(file) as _in:
+        schema[name] = json.load(_in)
 
-mapper = Mapper(mapping, resolver)
+try:
+    name = sys.argv[1].strip()
+    if (name not in schema) or (name not in mapping):
+        raise
+except:
+    sys.stderr.write("Provide mapping name\n")
+    sys.exit(1)
+
+
+resolver = RefResolver.from_schema(schema[name])
+mapper = Mapper(mapping[name], resolver)
 sys.stdout.write(json.dumps(mapper.apply(tender)))

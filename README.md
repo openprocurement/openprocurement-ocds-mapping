@@ -57,5 +57,5 @@ pip install -r requirements.txt
 
 ## Run transform on test data
 ``` bash
-python ocds.py | jq
+cat test-data/tender-simple.json | python ocds.py pure | jq
 ```
