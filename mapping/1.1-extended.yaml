@@ -111,6 +111,10 @@ definitions:
         src: format
       language:
         src: language
+      documentScope:
+        src: documentOf
+      relatedItem:
+        src: relatedItem
   period:
     mapping:
       startDate:
