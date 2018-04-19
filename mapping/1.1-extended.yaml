@@ -63,6 +63,10 @@ mapping:
       auctions:
         src: auctions
         $ref: "#/definitions/auction"
+      cause:
+        src: cause
+      causeDescription:
+        src: causeDescription
       items:
         src: items
         $ref: "#/definitions/item"
@@ -192,6 +196,7 @@ definitions:
       additionalContactPoints:
         src: additionalContactPoints
         $ref: "#/definitions/contactPoint"
+
   contactPoint:
     mapping:
       name:
