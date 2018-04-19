@@ -288,6 +288,16 @@
           "title": "Participation url",
           "description": "A link for participation in auction",
           "type": "string"
+        },
+        "selfQualified": {
+          "title": "Self qualified",
+          "description": "Confirms the absence of grounds for refusal to participate in accordance with Article 17 of the Law of Ukraine \"On public procurement\"",
+          "type": "boolean"
+        },
+        "qualificationDocuments": {
+          "title": "Qualification documents",
+          "description": "Documents related to qualifications",
+          "$ref": "#/definitions/Document"
         }
       },
       "required": [
@@ -442,6 +452,11 @@
           "title": "Lot ID",
           "description": "An identifier of the related lot.",
           "type": "string"
+        },
+        "qualified": {
+          "title": "Qualified",
+          "description": "Confirms the absence of grounds for refusal to participate in accordance with Article 17 of the Law of Ukraine \"On Public Procurement\".",
+          "type": "boolean"
         }
       }
     },
@@ -2195,6 +2210,19 @@
           },
           "type": "array",
           "description": "All lots of the tender"
+        },
+        "qualifications": {
+          "title": "Qualifications",
+          "description": "Qualifications of tender",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Qualification"
+          }
+        },
+        "qualificationPeriod": {
+          "description": "The timeframe when qualifications can be submitted.",
+          "title": "Qualification period",
+          "$ref": "#/definitions/Period"
         }
       }
     },
@@ -2577,6 +2605,62 @@
           "title": "ID",
           "type": "string",
           "description": "Unique id of the lot"
+        }
+      }
+    },
+    "Qualification": {
+      "type": "object",
+      "description": "Qualification",
+      "title": "Qualification",
+      "properties": {
+        "status": {
+          "enum": [
+            "pending",
+            "active",
+            "unsuccessful",
+            "cancelled"
+          ],
+          "type": "string",
+          "description": "Status of the qualification"
+        },
+        "lotID": {
+          "type": "string",
+          "description": "In Multilot tenders, lot that this Qualification protocol relates to"
+        },
+        "description": {
+          "type": "string",
+          "description": "Description of the qualification"
+        },
+        "title": {
+          "type": "string",
+          "description": "Qualification title"
+        },
+        "eligible": {
+          "type": "boolean",
+          "description": "Confirms compliance of eligibility criteria set by the procuring entity in the tendering documents"
+        },
+        "id": {
+          "type": "string",
+          "description": "Unique id of the qualification"
+        },
+        "qualified": {
+          "definitions": "Confirms the absence of grounds for refusal to participate in accordance with Article 17 of the Law of Ukraine \"On Public Procurement\"",
+          "type": "boolean"
+        },
+        "bidID": {
+          "type": "string",
+          "description": "Bid that this Qualification protocol relates to"
+        },
+        "date": {
+          "type": "string",
+          "description": "The date of the qualification"
+        },
+        "documents": {
+          "items": {
+            "$ref": "#/definitions/Document"
+          },
+          "type": "array",
+          "description": "Container for Qualification documentation, protocols, reasons for qualification or disqualification. Uploaded by tender committee"
         }
       }
     }

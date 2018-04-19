@@ -1,7 +1,10 @@
 pre-hooks:
-  - ". as $data|.items as $items | $data.awards=(.awards | map(. as $award | $award.items = if $data.lots then $items|map(select(.relatedLot == $award.lotID)) else $items end))"
+  - ". as $data | $data.bids = if $data.bids then $data.bids else [] end"
+  - ". as $data | $data.awards = if $data.awards then $data.awards else [] end"
+  - ". as $data | $data.contracts = if $data.contracts then $data.contracts else [] end"
+  - ". as $data|.items as $items | $data.awards=(.awards? | map(. as $award | $award.items = if $data.lots then $items|map(select(.relatedLot == $award.lotID)) else $items end))"
   - '. as $data | if $data.auctionPeriod then $data.auctions = (if $data.lots then $data.lots | map({"url": .auctionUrl, "minimalStep": .minimalStep, "period": .auctionPeriod, "relatedLot": .id}) else [{"url": $data.auctionUrl, "minimalStep": $data.minimalStep, "period": $data.auctionPeriod}] end) else $data end'
-  - '. as $data | if $data.bids then $data.bids = (if $data.lots then {"details": ([.bids as $bids| $bids | .[] as $bid| $bid | .lotValues[] as $value | $value + $bid|del(.lotValues)])} else {"details": $data.bids} end) else $data end'
+  - '. as $data | if $data.bids then $data.bids = (if $data.lots then {"details": ([.bids as $bids| $bids | .[] as $bid| $bid | .lotValues[]? as $value | $value + $bid|del(.lotValues)])} else {"details": $data.bids} end) else $data end'
 mapping:
   id:
     src: id
@@ -73,6 +76,12 @@ mapping:
       value:
         src: value
         $ref: "#/definitions/value"
+      qualifications:
+        src: qualifications
+        $ref: "#/definitions/qualification"
+      qualificationPeriod:
+        src: qualificationPeriod
+        $ref: "#/definitions/period"
       procurementMethod:
         src: procurementMethod
       procurementMethodRationale:
@@ -149,7 +158,6 @@ definitions:
         src: value
         $ref: "#/definitions/value"
       
-  
   document:
     mapping:
       title:
@@ -286,6 +294,8 @@ definitions:
       value:
         src: value
         $ref: "#/definitions/value"
+      qualified:
+        src: qualified
       suppliers:
         src: suppliers
         $ref: "#/definitions/organizationReference"
@@ -356,6 +366,8 @@ definitions:
         src: date
       status:
         src: status
+      selfQualified:
+        src: selfQualified
       tenderers:
         src: tenderers
         $ref: "#/definitions/organizationReference"
@@ -427,5 +439,23 @@ definitions:
         src: resolution
       reviewDate:
         src: reviewDate
+  qualification:
+    mapping:
+      id:
+        src: id
+      title:
+        src: title
+      description:
+        src: description
+      status:
+        src: status
+      lotID:
+        src: lotID
+      eligible:
+        src: eligible
+      qualified:
+        src: qualified
+      bidID:
+        src: bidID
       
       

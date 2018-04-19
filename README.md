@@ -42,7 +42,8 @@ Folder contains Openprocurement extensions for OCDS 1.1 to fit all data availabl
 - [x] Negotiation
 - [ ] PendingCancellation
 - [x] procurmentMethodDetails
-- [ ] Qualification
+- [x] Qualification
+- [ ] Qualification Documents
 - [ ] ShortlistedFirm
 - [x] tenderID
 - [ ] unitCode
