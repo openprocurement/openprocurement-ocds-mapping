@@ -49,6 +49,9 @@ mapping:
         src: title
       description:
         src: description
+      enquiries:
+        src: questions
+        $ref: "#/definitions/enquiry"
       auctions:
         src: auctions
         $ref: "#/definitions/auction"
@@ -91,6 +94,25 @@ mapping:
         $ref: "#/definitions/document"
 
 definitions:
+  enquiry:
+    mapping:
+      id:
+        src: id
+      date:
+        src: date
+      author:
+        src: author
+      title:
+        src: title
+      description:
+        src: description
+      answer:
+        src: answer
+      dateAnswered:
+        src: dateAnswered
+      relatedItem:
+        src: relatedItem
+  
   document:
     mapping:
       title:
