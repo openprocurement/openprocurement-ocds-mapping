@@ -43,6 +43,10 @@ mapping:
         src: status
         transforms: 
         - '.|split(".")|first'
+      currentStage:
+        src: status
+      procurementMethodType:
+        src: procurementMethodType
       id:
         src: id
       title:

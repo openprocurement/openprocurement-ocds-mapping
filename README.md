@@ -41,7 +41,7 @@ Folder contains Openprocurement extensions for OCDS 1.1 to fit all data availabl
 - [ ] MEAT
 - [ ] Negotiation
 - [ ] PendingCancellation
-- [ ] procurmentMethodType
+- [x] procurmentMethodDetails
 - [ ] Qualification
 - [ ] ShortlistedFirm
 - [ ] tenderID
