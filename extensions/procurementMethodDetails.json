@@ -3,7 +3,17 @@
         "path": "/definitions/Tender/properties/procurementMethodType",
         "value": {
         	"title": "Procurement Method Type",
-            "enum": [],
+            "enum": [
+                "belowThreshold",
+                "aboveThresholdUA",
+                "aboveThresholdUA.defense",
+                "aboveThresholdEU",
+                "reporting",
+                "negotiation",
+                "negotiation.quick",
+                "competitivedialogue",
+                "esco"
+            ],
             "type": "string",
             "description": "Type of Open Procurement procedure"
         },
@@ -11,16 +21,26 @@
     },
     {
         "op": "add",
-        "path": "/definitions/Tender/properties/procurementMethodType/enum/0",
-        "value": "belowThreshold"
-    },
-    {
-        "op": "add",
         "path": "/definitions/Tender/properties/currentStage",
         "value": {
         	"title": "Current stage",
             "description": "Current stage of tender",
-            "type": "string"
+            "type": "string",
+            "enum": [
+                "draft",
+                "active.enquiries",
+                "active.tendering",
+                "active.auction",
+                "active.pre-qualification",
+                "active.pre-qualification.stand-still",
+                "active.qualification",
+                "active.awarded",
+                "active.stage2.pending",
+                "active.stage2.waiting",
+                "complete",
+                "cancelled",
+                "unsuccessful"
+            ]
         }
     }
 ]
