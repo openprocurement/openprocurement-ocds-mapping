@@ -3,11 +3,12 @@
         "path": "/definitions/Contract/properties/suppliers", 
         "value": {
             "title": "Suppliers",
+            "description": "The suppliers explicitly named in this contract.",
+            "type": "array",
             "items": {
-                "$ref": "#/definitions/Organization"
-            }, 
-            "type": "array", 
-            "description": "Description of the supplying organization, auto-generated"
+              "$ref": "#/definitions/OrganizationReference"
+            },
+            "uniqueItems": true
         }, 
         "op": "add"
     }
