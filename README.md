@@ -44,7 +44,7 @@ Folder contains Openprocurement extensions for OCDS 1.1 to fit all data availabl
 - [x] procurmentMethodDetails
 - [ ] Qualification
 - [ ] ShortlistedFirm
-- [ ] tenderID
+- [x] tenderID
 - [ ] unitCode
 - [ ] valueAddedTax
 

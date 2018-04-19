@@ -49,6 +49,10 @@ mapping:
         src: procurementMethodType
       id:
         src: id
+      tenderID:
+        src: tenderID
+      stage2tenderID:
+        src: stage2tenderID
       title:
         src: title
       description:

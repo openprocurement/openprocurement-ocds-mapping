@@ -2153,6 +2153,16 @@
             "cancelled",
             "unsuccessful"
           ]
+        },
+        "tenderID": {
+          "title": "Tender ID",
+          "type": "string",
+          "description": "The tender identifier to refer tender to in \"paper\" documentation. TenderID should always be the same as the OCID. It is included to make the flattened data structure more convenient"
+        },
+        "stage2tenderID": {
+          "title": "Stage2 tender ID",
+          "description": "A tender identifier used on the second stage of the competitive dialogue procedure.",
+          "type": "string"
         }
       }
     },
