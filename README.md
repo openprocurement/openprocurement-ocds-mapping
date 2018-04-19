@@ -31,7 +31,7 @@ Folder contains Openprocurement extensions for OCDS 1.1 to fit all data availabl
 - [ ] Complaint lotID
 - [x] AdditionalContactPoints
 - [x] ContractID
-- [ ] ContractNumber
+- [x] ContractNumber
 - [ ] ContractSuppliers
 - [ ] Delivery
 - [ ] Eligibility

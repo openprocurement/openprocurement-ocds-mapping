@@ -295,6 +295,8 @@ definitions:
         $ref: "#/definitions/document"
       contractID:
         src: contractID
+      contractNumber:
+        src: contractNumber
   auction:
     mapping:
       url:
