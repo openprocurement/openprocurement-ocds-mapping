@@ -7,7 +7,7 @@
     "tag",
     "initiationType"
   ],
-  "id": "http://standard.open-contracting.org/schema/1__1__2/release-schema.json",
+  "id": "https://raw.githubusercontent.com/openprocurement/openprocurement-ocds-mapping/master/schemas/1.1-extended-schema.json",
   "definitions": {
     "Implementation": {
       "title": "Implementation",

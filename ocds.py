@@ -33,7 +33,7 @@ except:
     sys.stderr.write("Provide mapping name\n")
     sys.exit(1)
 
-
-resolver = RefResolver.from_schema(schema[name])
-mapper = Mapper(mapping[name], resolver)
-sys.stdout.write(json.dumps(mapper.apply(tender)))
+if __name__ == "__main__":
+    resolver = RefResolver.from_schema(schema[name])
+    mapper = Mapper(mapping[name], resolver)
+    sys.stdout.write(json.dumps(mapper.apply(tender)))

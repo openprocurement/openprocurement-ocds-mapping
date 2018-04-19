@@ -7,6 +7,8 @@ mapping:
     src: id
   ocid:
     src: tenderID
+    transforms:
+    - '"ocds-be6bcu"+.'
   date:
     src: dateModified
   language:
@@ -18,7 +20,7 @@ mapping:
   parties:
     src:
       - procuringEntity
-      - "bids.details | [.[].tenderers[]]"
+      - "bids.details[].tenderers[]"
     $ref: "#/definitions/organization"
     transforms:
       - uniq
@@ -144,10 +146,24 @@ definitions:
       address:
         src: address
         $ref: "#/definitions/address"
+      contactPoint:
+        src: contactPoint
+        $ref: "#/definitions/contactPoint"
       additionalContactPoints:
         src: additionalContactPoints
-        $ref: 
-
+        $ref: "#/definitions/contactPoint"
+  contactPoint:
+    mapping:
+      name:
+        src: name
+      email:
+        src: email
+      telephone:
+        src: telephone
+      faxNumber:
+        src: faxNumber
+      url:
+        src: url
   value:
     mapping:
       amount:
@@ -258,9 +274,9 @@ definitions:
         src: date
       status:
         src: status
-        #tenderers:
-        #tesrc: tenderers
-        #te$ref: "#/definitions/organizationReference"
+      tenderers:
+        src: tenderers
+        $ref: "#/definitions/organizationReference"
       value:
         src: value
         $ref: "#/definitions/value"
