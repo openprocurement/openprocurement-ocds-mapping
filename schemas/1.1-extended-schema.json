@@ -220,6 +220,7 @@
           "title": "Document scope",
           "enum": [
             "tender",
+            "lot",
             "item"
           ],
           "type": "string",
@@ -284,9 +285,9 @@
           "title": "ID"
         },
         "participationUrl": {
-          "type": "string",
-          "descritpion": "A link for participation in auction",
-          "title": "Participation url"
+          "title": "Participation url",
+          "description": "A link for participation in auction",
+          "type": "string"
         }
       },
       "required": [
@@ -436,6 +437,11 @@
           "description": "The timeframe when complaints can be submitted.",
           "title": "Complaint period",
           "$ref": "#/definitions/Period"
+        },
+        "lotID": {
+          "title": "Lot ID",
+          "description": "An identifier of the related lot.",
+          "type": "string"
         }
       }
     },
@@ -600,6 +606,11 @@
           "$ref": "#/definitions/Period",
           "descritpion": "Period when Auction is conducted",
           "title": "Auction Period"
+        },
+        "relatedLot": {
+          "title": "Related lot",
+          "description": "Id of the related lot",
+          "type": "string"
         }
       },
       "title": "Auction"
@@ -1251,6 +1262,11 @@
           ],
           "description": "The number of units required",
           "title": "Quantity"
+        },
+        "relatedLot": {
+          "title": "Related Lot",
+          "type": "string",
+          "description": "An identifier of the related lot. This field is added if there are lots in tender."
         }
       }
     },
@@ -2171,6 +2187,14 @@
         "causeDescription": {
           "description": "Reasoning behind usage of negotiations. Required for openprocurement.limited",
           "type": "string"
+        },
+        "lots": {
+          "title": "Lots",
+          "items": {
+            "$ref": "#/definitions/Lot"
+          },
+          "type": "array",
+          "description": "All lots of the tender"
         }
       }
     },
@@ -2366,6 +2390,11 @@
             "string",
             "null"
           ]
+        },
+        "relatedLot": {
+          "title": "Related lot",
+          "description": "Id of the related lot",
+          "type": "string"
         }
       }
     },
@@ -2510,6 +2539,44 @@
         "reviewDate": {
           "type": "string",
           "description": "The date of reviewing the complaint"
+        }
+      }
+    },
+    "Lot": {
+      "title": "Lot",
+      "type": "object",
+      "description": "Lot related to tender",
+      "properties": {
+        "status": {
+          "title": "Status",
+          "enum": [
+            "active",
+            "unsuccessful",
+            "complete",
+            "cancelled"
+          ],
+          "type": "string",
+          "description": "Status of the lot"
+        },
+        "description": {
+          "title": "Description",
+          "type": "string",
+          "description": "Detailed description of tender lot"
+        },
+        "title": {
+          "title": "Title",
+          "type": "string",
+          "description": "Title of lot"
+        },
+        "value": {
+          "title": "Value",
+          "description": "Total available tender lot budget",
+          "$ref": "#/definitions/Value"
+        },
+        "id": {
+          "title": "ID",
+          "type": "string",
+          "description": "Unique id of the lot"
         }
       }
     }

@@ -97,14 +97,5 @@
             "description": "Id of the related lot",
             "type": "string"
         }
-    },
-    {
-        "op": "add",
-        "path": "/definitions/Bid/properties/participationUrl",
-        "value": {
-            "title": "Participation url",
-            "description": "A link for participation in auction",
-            "type": "string"
-        }
     }
 ]

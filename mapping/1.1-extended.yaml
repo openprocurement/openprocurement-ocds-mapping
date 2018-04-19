@@ -110,6 +110,9 @@ mapping:
       complaintPeriod:
         src: complaintPeriod
         $ref: "#/definitions/period"
+      lots:
+        src: lots
+        $ref: "#/definitions/lot"
 
 definitions:
   enquiry:
@@ -130,6 +133,22 @@ definitions:
         src: dateAnswered
       relatedItem:
         src: relatedItem
+      relatedLot:
+        src: relatedLot
+  lot:
+    mapping:
+      id:
+        src: id
+      status:
+        src: status
+      description:
+        src: description
+      title:
+        src: title
+      value:
+        src: value
+        $ref: "#/definitions/value"
+      
   
   document:
     mapping:
@@ -245,6 +264,8 @@ definitions:
         $ref: "#/definitions/identifier"
       quantity:
         src: quantity
+      relatedLot:
+        src: relatedLot
       unit:
         src: unit
         $ref: "#/definitions/unit"
@@ -252,6 +273,8 @@ definitions:
     mapping:
       id:
         src: id
+      lotID:
+        src: lotID
       title:
         src: title
       description:
@@ -344,6 +367,8 @@ definitions:
         $ref: "#/definitions/document"
       relatedLot:
         src: relatedLot
+      participationUrl:
+        src: participationUrl
   bids:
     mapping:
       details:
