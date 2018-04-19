@@ -165,7 +165,7 @@
 		"value": {
 			"description": "The timeframe when complaints can be submitted.",
 			"title": "Complaint period",
-			"type": "string"
+			"$ref":  "#/definitions/Period"
 		}
 	},
 	{
@@ -186,7 +186,7 @@
 		"value": {
 			"description": "The timeframe when complaints can be submitted.",
 			"title": "Complaint period",
-			"type": "string"
+			"$ref":  "#/definitions/Period"
 		}
 	}
 ]

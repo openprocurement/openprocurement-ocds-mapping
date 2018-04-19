@@ -92,6 +92,12 @@ mapping:
       documents:
         src: documents
         $ref: "#/definitions/document"
+      complaints:
+        src: complaints
+        $ref: "#/definitions/complaint"
+      complaintPeriod:
+        src: complaintPeriod
+        $ref: "#/definitions/period"
 
 definitions:
   enquiry:
@@ -256,6 +262,13 @@ definitions:
       documents:
         src: documents
         $ref: "#/definitions/document"
+      complaints:
+        src: complaints
+        $ref: "#/definitions/complaint"
+      complaintPeriod:
+        src: complaintPeriod
+        $ref: "#/definitions/period"
+
   contract:
     mapping:
       id:
@@ -316,3 +329,58 @@ definitions:
       details:
         src: details
         $ref: "#/definitions/bid"
+  complaint:
+    mapping:
+      id:
+        src: id
+      status:
+        src: status
+      title:
+        src: title
+      decision:
+        src: decision
+      tendererActionDate:
+        src: tendererActionDate
+      satisfied:
+        src: satisfied
+      tendererAction:
+        src: tendererAction
+      dateSubmitted:
+        src: dateSubmitted
+      reviewPlace:
+        src: reviewPlace
+      documents:
+        src: documents
+        $ref: "#/definitions/document"
+      acceptance:
+        src: acceptance
+      dateEscalated:
+        src: dateEscalated
+      rejectReasonDescription:
+        src: rejectReasonDescription
+      cancellationReason:
+        src: cancellationReason
+      dateAnswered:
+        src: dateAnswered
+      type:
+        src: type
+      description:
+        src: description
+      dateCancelled:
+        src: dateCancelled
+      date:
+        src: date
+      dateDecision:
+        src: dateDecision
+      author:
+        src: author
+      rejectReason:
+        src: rejectReason
+      resolutionType:
+        src: resolutionType
+      resolution:
+        src: resolution
+      reviewDate:
+        src: reviewDate
+      
+      
