@@ -297,6 +297,9 @@ definitions:
         src: contractID
       contractNumber:
         src: contractNumber
+      suppliers:
+        src: suppliers
+        $ref: "#/definitions/organizationReference"
   auction:
     mapping:
       url:

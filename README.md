@@ -32,7 +32,7 @@ Folder contains Openprocurement extensions for OCDS 1.1 to fit all data availabl
 - [x] AdditionalContactPoints
 - [x] ContractID
 - [x] ContractNumber
-- [ ] ContractSuppliers
+- [x] ContractSuppliers
 - [ ] Delivery
 - [ ] Eligibility
 - [x] Enquiries
