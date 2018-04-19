@@ -1404,6 +1404,11 @@
           ],
           "description": "The identifier for this contract. It must be unique and cannot change within its Open Contracting Process (defined by a single ocid). See the [identifier guidance](http://standard.open-contracting.org/latest/en/schema/identifiers/) for further details.",
           "title": "Contract ID"
+        },
+        "contractID": {
+          "title": "Contract ID",
+          "type": "string",
+          "description": "Number of the contract, auto generated"
         }
       }
     },

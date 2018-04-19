@@ -293,6 +293,8 @@ definitions:
       documents:
         src: documents
         $ref: "#/definitions/document"
+      contractID:
+        src: contractID
   auction:
     mapping:
       url:
