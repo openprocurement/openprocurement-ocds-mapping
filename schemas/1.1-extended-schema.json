@@ -1170,6 +1170,11 @@
           ],
           "description": "Amount as a number.",
           "title": "Amount"
+        },
+        "valueAddedTaxIncluded": {
+          "title": "Tax Included",
+          "type": "boolean",
+          "description": "A Yes/No field to indicate whether the value tax was included"
         }
       },
       "title": "Value"
