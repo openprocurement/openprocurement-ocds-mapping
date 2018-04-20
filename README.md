@@ -28,7 +28,6 @@ Folder contains Openprocurement extensions for OCDS 1.1 to fit all data availabl
 - [x] Auction
 - [x] Lot
 - [x] Complaints
-- [ ] Complaint lotID
 - [x] AdditionalContactPoints
 - [x] ContractID
 - [x] ContractNumber
@@ -47,7 +46,7 @@ Folder contains Openprocurement extensions for OCDS 1.1 to fit all data availabl
 - [ ] ShortlistedFirm
 - [x] tenderID
 - [ ] unitCode
-- [ ] valueAddedTax
+- [x] valueAddedTax
 
 ## Build dev environment:
 ```bash
