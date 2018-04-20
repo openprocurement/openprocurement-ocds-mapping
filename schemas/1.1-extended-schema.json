@@ -298,6 +298,14 @@
           "title": "Qualification documents",
           "description": "Documents related to qualifications",
           "$ref": "#/definitions/Document"
+        },
+        "parameters": {
+          "title": "Parameters",
+          "description": "Bid parameters",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Parameter"
+          }
         }
       },
       "required": [
@@ -2228,6 +2236,14 @@
           "title": "Guarantee",
           "description": "A sum of money which the Economic Operator  may set out in tender documentation and which the Participant (Award of Tender/Lot) shall pay in case of a refusal to sign the Contract, or in other cases foreseen in the Law.",
           "$ref": "#/definitions/Guarantee"
+        },
+        "features": {
+          "title": "Features",
+          "description": "Features of tenders",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Feature"
+          }
         }
       }
     },
@@ -2691,6 +2707,80 @@
           "title": "Currency",
           "description": "Currency of the guarantee in a 3-letter ISO 4217 format.",
           "type": "string"
+        }
+      }
+    },
+    "Parameter": {
+      "type": "object",
+      "title": "Parameter",
+      "description": "Parameter of the Bid",
+      "properties": {
+        "code": {
+          "title": "Code",
+          "description": "Code of the feature, auto generated",
+          "type": "string"
+        },
+        "value": {
+          "title": "Value",
+          "description": "Value of bid feature",
+          "type": "float"
+        }
+      }
+    },
+    "Feature": {
+      "type": "object",
+      "title": "Feature",
+      "description": "Features of tender",
+      "properties": {
+        "code": {
+          "title": "Code",
+          "description": "Code of the feature, auto generated",
+          "type": "string"
+        },
+        "featureOf": {
+          "title": "Feature Of",
+          "description": "What the feature is related to.",
+          "type": "string"
+        },
+        "relatedItem": {
+          "title": "Related Item",
+          "description": "An identifier of the related item or lot",
+          "type": "string"
+        },
+        "title": {
+          "title": "Title",
+          "description": "Title of feature",
+          "type": "string"
+        },
+        "description": {
+          "title": "Description",
+          "description": "Description of the feature",
+          "type": "string"
+        },
+        "enum": {
+          "title": "Enum",
+          "description": "List of values",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "title": "Value",
+                "description": "Value of the feature",
+                "type": "float"
+              },
+              "title": {
+                "title": "Title",
+                "description": "Title of the value",
+                "type": "string"
+              },
+              "description": {
+                "title": "Description",
+                "description": "Description of the value",
+                "type": "string"
+              }
+            }
+          }
         }
       }
     }

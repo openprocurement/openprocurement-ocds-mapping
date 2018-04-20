@@ -87,6 +87,9 @@ mapping:
       guarantee:
         src: guarantee
         $ref: "#/definitions/value"
+      features:
+        src: features
+        $ref: "#/definitions/feature"
       procurementMethodRationale:
         src: procurementMethodRationale
       awardCriteria:
@@ -163,6 +166,26 @@ definitions:
       guarantee:
         src: guarantee
         $ref: "#/definitions/value"
+  feature:
+    mapping:
+      code:
+        src: code
+      featureOf:
+        src: featureOf
+      relatedItem:
+        src: relatedItem
+      title:
+        src: title
+      description:
+        src: description
+      enum:
+        mapping:
+          value:
+            src: value
+          title:
+            src: title
+          description:
+            src: description
       
   document:
     mapping:
@@ -387,6 +410,13 @@ definitions:
         src: relatedLot
       participationUrl:
         src: participationUrl
+      parameters:
+        src: parameters
+        mapping:
+          code: 
+            src: code
+          value:
+            src: value
   bids:
     mapping:
       details:

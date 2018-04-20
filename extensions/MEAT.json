@@ -1,6 +1,27 @@
 [
 	{
 		"op": "add",
+		"path": "/definitions/Parameter",
+		"value": {
+			"type": "object",
+			"title": "Parameter",
+			"description": "Parameter of the Bid",
+			"properties": {
+				"code": {
+					"title": "Code",
+					"description": "Code of the feature, auto generated",
+					"type": "string"
+				},
+				"value": {
+					"title": "Value",
+					"description": "Value of bid feature",
+					"type": "float"
+				}
+			}
+		}
+	},
+	{
+		"op": "add",
 		"path": "/definitions/Feature",
 		"value": {
 			"type": "object",
@@ -10,7 +31,7 @@
 				"code": {
 					"title": "Code",
 					"description": "Code of the feature, auto generated",
-					"type": "string",
+					"type": "string"
 				},
 				"featureOf": {
 					"title": "Feature Of",
@@ -25,7 +46,7 @@
 				"title": {
 					"title": "Title",
 					"description": "Title of feature",
-					"type": "string",
+					"type": "string"
 				},
 				"description": {
 					"title": "Description",
@@ -47,7 +68,7 @@
 							"title": {
 								"title": "Title",
 								"description": "Title of the value",
-								"type": "string",
+								"type": "string"
 							},
 							"description": {
 								"title": "Description",
@@ -69,6 +90,18 @@
 			"type": "array",
 			"items": {
 				"$ref": "#/definitions/Feature"
+			}
+		}
+	},
+	{
+		"op": "add",
+		"path": "/definitions/Bid/properties/parameters",
+		"value": {
+			"title": "Parameters",
+			"description": "Bid parameters",
+			"type": "array",
+			"items": {
+				"$ref": "#/definitions/Parameter"
 			}
 		}
 	}
