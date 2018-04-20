@@ -39,7 +39,6 @@ mapping:
   bids:
     src: bids
     $ref: "#/definitions/bids"
-
   tender:
     mapping:
       status:
@@ -128,7 +127,6 @@ mapping:
       lots:
         src: lots
         $ref: "#/definitions/lot"
-
 definitions:
   enquiry:
     mapping:
@@ -186,7 +184,6 @@ definitions:
             src: title
           description:
             src: description
-      
   document:
     mapping:
       title:
@@ -252,7 +249,6 @@ definitions:
       additionalContactPoints:
         src: additionalContactPoints
         $ref: "#/definitions/contactPoint"
-
   contactPoint:
     mapping:
       name:
@@ -345,7 +341,6 @@ definitions:
       complaintPeriod:
         src: complaintPeriod
         $ref: "#/definitions/period"
-
   contract:
     mapping:
       id:
@@ -447,6 +442,8 @@ definitions:
       documents:
         src: documents
         $ref: "#/definitions/document"
+      relatedLot:
+        src: relatedLot
       acceptance:
         src: acceptance
       dateEscalated:
@@ -495,5 +492,3 @@ definitions:
         src: qualified
       bidID:
         src: bidID
-      
-      
