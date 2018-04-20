@@ -36,7 +36,7 @@ Folder contains Openprocurement extensions for OCDS 1.1 to fit all data availabl
 - [ ] Delivery
 - [ ] Eligibility
 - [x] Enquiries
-- [ ] Guarantee
+- [x] Guarantee
 - [x] LinkedDocuments
 - [ ] MEAT
 - [x] Negotiation
