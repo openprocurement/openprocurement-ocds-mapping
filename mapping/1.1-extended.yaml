@@ -6,7 +6,13 @@ pre-hooks:
   - '. as $data | if $data.auctionPeriod then $data.auctions = (if $data.lots then $data.lots | map({"url": .auctionUrl, "minimalStep": .minimalStep, "period": .auctionPeriod, "relatedLot": .id}) else [{"url": $data.auctionUrl, "minimalStep": $data.minimalStep, "period": $data.auctionPeriod}] end) else $data end'
   - '. as $data | if $data.bids then $data.bids = (if $data.lots then {"details": ([.bids as $bids| $bids | .[] as $bid| $bid | .lotValues[]? as $value | $value + $bid|del(.lotValues)])} else {"details": $data.bids} end) else $data end'
   - "if .procuringEntity then .procuringEntity.roles = \"procuringEntity\" else . end"
-  - "if .bids then .bids = (.bids | map(if .tenderers then .tenderers = (.tenderers | map(.roles = \"tenderer\")) else . end)) else . end"
+  - "if .bids then .bids.details = (.bids.details | map(if .tenderers then .tenderers = (.tenderers | map(.roles = \"tenderer\")) else . end)) else . end"
+  - "if .awards then .awards = (.awards | map(if .suppliers then .suppliers = (.suppliers | map(.roles = \"supplier\")) else . end)) else . end"
+  - 'if .cancellations and (.cancellations | any(.cancellationOf == "tender")) then .pendingCancellation = true else . end'
+  - '.cancellations as $cancellations | if $cancellations and .lots then .lots = (.lots | map(. as $lot | if ($cancellations | any(.cancellationOf == "lot" and .relatedLot == $lot.id)) then $lot.pendingCancellation = true else . end)) else . end'
+  - 'if .procuringEntity then if .procuringEntity.contactPoint and .language then .procuringEntity.contactPoint.availbaleLanguage = .language else . end else . end'
+  - '. as $data | if .bids.details then .bids.details = (.bids.details | map(if .tenderers then .tenderers = (.tenderers | map(if .contactPoint then .contactPoint.availableLanguage = $data.language else . end)) else . end )) else . end'
+  - '. as $data | if .awards then .awards = (.awards | map(if .suppliers then .suppliers = (.suppliers | map(if .contactPoint then .contactPoint.availableLanguage = $data.language else . end)) else . end)) else . end'
 mapping:
   id:
     src: id
@@ -26,6 +32,7 @@ mapping:
     src:
       - procuringEntity
       - "bids.details[].tenderers[]"
+      - "awards[].suppliers[]"
     $ref: "#/definitions/organization"
     transforms:
       - uniq
@@ -51,6 +58,9 @@ mapping:
         src: status
       procurementMethodType:
         src: procurementMethodType
+      shortlistedFirms:
+        src: shortlistedFirms
+        $ref: "#/definitions/shortlistedFirms"
       id:
         src: id
       tenderID:
@@ -71,6 +81,8 @@ mapping:
         src: cause
       causeDescription:
         src: causeDescription
+      pendingCancellation:
+        src: pendingCancellation
       items:
         src: items
         $ref: "#/definitions/item"
@@ -163,9 +175,17 @@ definitions:
       value:
         src: value
         $ref: "#/definitions/value"
+      pendingCancellation:
+        src: pendingCancellation
       guarantee:
         src: guarantee
         $ref: "#/definitions/value"
+  parameter:
+    mapping:
+      code: 
+        src: code
+      value:
+        src: value
   feature:
     mapping:
       code:
@@ -251,6 +271,8 @@ definitions:
       additionalContactPoints:
         src: additionalContactPoints
         $ref: "#/definitions/contactPoint"
+      roles:
+        src: roles
   contactPoint:
     mapping:
       name:
@@ -263,6 +285,8 @@ definitions:
         src: faxNumber
       url:
         src: url
+      availableLanguage:
+        src: availableLanguage
   value:
     mapping:
       amount:
@@ -286,7 +310,9 @@ definitions:
       name:
         src: name
       id:
-        src: code 
+        src: code
+      scheme:
+        src: scheme
   item:
     mapping:
       id:
@@ -306,6 +332,15 @@ definitions:
       unit:
         src: unit
         $ref: "#/definitions/unit"
+      deliveryAddress:
+        src: deliveryAddress
+        $ref: "#/definitions/address"
+      deliveryDate:
+        src: deliveryDate
+        $ref: "#/definitions/period"
+      deliveryLocation:
+        src: deliverylocation
+        $ref: "#/definitions/location"
   award:
     mapping:
       id:
@@ -343,6 +378,8 @@ definitions:
       complaintPeriod:
         src: complaintPeriod
         $ref: "#/definitions/period"
+      eligible:
+        src: eligible
   contract:
     mapping:
       id:
@@ -411,11 +448,15 @@ definitions:
         src: participationUrl
       parameters:
         src: parameters
-        mapping:
-          code: 
-            src: code
-          value:
-            src: value
+        $ref: "#/definitions/parameter"
+      selfEligible:
+        src: selfEligible
+      eligibilityDocuments:
+        src: eligibilityDocuments
+        $ref: "#/definitions/document"
+      qualificationDocuments:
+        src: qualificationDocuments
+        $ref: "#/definitions/document"
   bids:
     mapping:
       details:
@@ -494,3 +535,26 @@ definitions:
         src: qualified
       bidID:
         src: bidID
+      date:
+        src: date
+      documents:
+        src: documents
+        $ref: "#/definitions/document"
+  location:
+    mapping:
+      geometry:
+        mapping:
+          coordinates:
+            src:
+              - latitude
+              - longtitude # order???
+  shortlistedFirms:
+    mapping:
+      lots:
+        src: lots
+        $src: "#/definitions/lot"
+      identifier:
+        src: identifier
+        $src: "#/definitions/identifier"
+      name:
+        src: name
