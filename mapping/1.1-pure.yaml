@@ -5,6 +5,7 @@ pre-hooks:
   - ". as $data|.items as $items | $data.awards=(.awards | map(. as $award | $award.items = if $data.lots then $items|map(select(.relatedLot == $award.lotID)) else $items end))"
   - "if .procuringEntity then .procuringEntity.roles = \"procuringEntity\" else . end"
   - "if .bids then .bids = (.bids | map(if .tenderers then .tenderers = (.tenderers | map(.roles = \"tenderer\")) else . end)) else . end"
+  - "if .awards then .awards = (.awards | map(if .suppliers then .suppliers = (.suppliers | map(.roles = \"supplier\")) else . end)) else . end"
 mapping:
   id:
     src: id
@@ -92,7 +93,10 @@ mapping:
       documents:
         src: documents
         $ref: "#/definitions/document"
-
+      numberOfTenderers:
+        src: "bids[].tenderers[]"
+        transforms:
+          - count
 definitions:
   contactPoint:
     mapping:
@@ -164,6 +168,8 @@ definitions:
       contactPoint:
         src: contactPoint
         $ref: "#/definitions/contactPoint"
+      roles:
+        src: roles
 
   value:
     mapping:

@@ -238,6 +238,12 @@
           "description": "The status of the bid, drawn from the bidStatus codelist",
           "title": "Status"
         },
+        "qualificationDocuments": {
+          "title": "Qualification documents",
+          "type": "array",
+          "description": "Documents related to qualifications",
+          "$ref": "#/definitions/Document"
+        },
         "relatedLot": {
           "type": "string",
           "description": "Id of related lot",
@@ -294,10 +300,10 @@
           "description": "Confirms the absence of grounds for refusal to participate in accordance with Article 17 of the Law of Ukraine \"On public procurement\"",
           "type": "boolean"
         },
-        "qualificationDocuments": {
-          "title": "Qualification documents",
-          "description": "Documents related to qualifications",
-          "$ref": "#/definitions/Document"
+        "selfEligible": {
+          "title": "Self eligible",
+          "description": "Confirms compliance of eligibility criteria set by the customer in the tendering documents",
+          "type": "boolean"
         },
         "parameters": {
           "title": "Parameters",
@@ -353,6 +359,19 @@
             "null"
           ],
           "openCodelist": false
+        },
+        "eligible": {
+          "title": "Self eligible",
+          "description": "Confirms compliance of eligibility criteria set by the customer in the tendering documents",
+          "type": "boolean"
+        },
+        "eligibilityDocuments": {
+          "title": "Eligibility documents",
+          "description": "Documents related to eligibility of bids",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Document"
+          }
         },
         "amendment": {
           "deprecated": {
@@ -612,22 +631,22 @@
       "description": "A spending transaction related to the contracting process. Draws upon the data models of the [Fiscal Data Package](http://fiscal.dataprotocols.org/) and the [International Aid Transparency Initiative](http://iatistandard.org/activity-standard/iati-activities/iati-activity/transaction/) and should be used to cross-reference to more detailed information held using a Fiscal Data Package, IATI file, or to provide enough information to allow a user to manually or automatically cross-reference with some other published source of transactional spending data."
     },
     "Auction": {
-      "descritpion": "Auction object which shows all auction properties of lots and tender",
+      "description": "Auction object which shows all auction properties of lots and tender",
       "type": "object",
       "properties": {
         "url": {
           "type": "string",
-          "descritpion": "Url for auction",
+          "description": "Url for auction",
           "title": "Auction"
         },
         "minimalStep": {
           "$ref": "#/definitions/Value",
-          "descritpion": "Minimal step for this auction",
+          "description": "Minimal step for this auction",
           "title": "Minimal Step"
         },
         "period": {
           "$ref": "#/definitions/Period",
-          "descritpion": "Period when Auction is conducted",
+          "description": "Period when Auction is conducted",
           "title": "Auction Period"
         },
         "relatedLot": {
@@ -1179,6 +1198,33 @@
       },
       "title": "Value"
     },
+    "Location": {
+      "title": "Location",
+      "type": "object",
+      "description": "The location where activity related to this tender, contract or license will be delivered, or will take place. A location can be described by either a geometry (point location, line or polygon), or a gazetteer entry, or both.",
+      "properties": {
+        "geometry": {
+          "type": "object",
+          "description": "We follow the [GeoJSON standard](http://geojson.org/) to express basic location information, using latitude and longitude values in the [WGS84](https://en.wikipedia.org/wiki/World_Geodetic_System) (EPSG:4326) projection.  A point location can be identified by geocoding a delivery address. For concession licenses, or other contracts covering a polygon location which is not contained in a known gazetteer, polygon and multi-polygon can be used. ",
+          "notes_for_guidance": "The guidance notes should describe when to use MultiPoint, and when to use multiple line-items each with their own locations",
+          "properties": {
+            "coordinates": {
+              "description": "The relevant array of points, e.g. [latitude,longitude], or nested array, for the geoJSON geometry being described. The longitude and latitude MUST be expressed in decimal degrees in the WGS84 (EPSG:4326) projection",
+              "type": [
+                "array",
+                "null"
+              ],
+              "items": {
+                "type": [
+                  "number",
+                  "array"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
     "Item": {
       "description": "A good, service, or work to be contracted.",
       "title": "Item",
@@ -1195,6 +1241,16 @@
       },
       "type": "object",
       "properties": {
+        "deliveryAddress": {
+          "title": "Delivery Address",
+          "description": "Address, where the item should be delivered",
+          "$ref": "#/definitions/Address"
+        },
+        "deliveryDate": {
+          "title": "Delivery Date",
+          "description": "Period during which the item should be delivered",
+          "$ref": "#/definitions/Period"
+        },
         "description": {
           "type": [
             "string",
@@ -1890,6 +1946,11 @@
           ],
           "openCodelist": false
         },
+        "pendingCancellation": {
+          "title": "Cancellation pending",
+          "type": "boolean",
+          "description":  "Yes or No field showing  whether a lot is pending for cancellation."
+        },
         "amendment": {
           "deprecated": {
             "deprecatedVersion": "1.1",
@@ -2130,7 +2191,7 @@
             "$ref": "#/definitions/Auction"
           },
           "type": "array",
-          "descritpion": "Auctions of tender and lots",
+          "description": "Auctions of tender and lots",
           "title": "Auctions"
         },
         "hasEnquiries": {
@@ -2248,6 +2309,14 @@
           "type": "array",
           "items": {
             "$ref": "#/definitions/Feature"
+          }
+        },
+        "shortlistedFirms": {
+          "title": "shortlistedFirms",
+          "description": "A list of firms which can register bids on the second stage of the competitive dialogue procedure",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ShortlistedFirms"
           }
         }
       }
@@ -2600,6 +2669,9 @@
       "title": "Lot",
       "type": "object",
       "description": "Lot related to tender",
+      "required": [
+        "value"
+      ],
       "properties": {
         "status": {
           "title": "Status",
@@ -2636,6 +2708,11 @@
           "title": "Guarantee",
           "description": "A sum of money which the Economic Operator  may set out in tender documentation and which the Participant (Award of Tender/Lot) shall pay in case of a refusal to sign the Contract, or in other cases foreseen in the Law.",
           "$ref": "#/definitions/Guarantee"
+        },
+        "pendingCancellation": {
+          "title": "Cancellation pending",
+          "type": "boolean",
+          "description":  "Yes or No field showing  whether a lot is pending for cancellation."
         }
       }
     },
@@ -2706,7 +2783,7 @@
         "amount": {
           "title": "Amount",
           "description": "Amount of the guarantee as a number",
-          "type": "float"
+          "type": "number"
         },
         "currency": {
           "title": "Currency",
@@ -2728,8 +2805,32 @@
         "value": {
           "title": "Value",
           "description": "Value of bid feature",
-          "type": "float"
+          "type": "number"
         }
+      }
+    },
+    "ShortlistedFirms": {
+      "required": [
+        "name"
+      ],
+      "type": "object", 
+      "description": "A list of firms which can register bids on the second stage of the competitive dialogue procedure", 
+      "properties": {
+          "lots": {
+              "items": {
+                  "$ref": "#/definitions/Lot"
+              }, 
+              "type": "array", 
+              "description": "List of lots"
+          }, 
+          "identifier": {
+              "description": "The primary identifier for this organization", 
+              "$ref": "#/definitions/Identifier"
+          }, 
+          "name": {
+              "type": "string", 
+              "description": "Firm name"
+          }
       }
     },
     "Feature": {
@@ -2772,7 +2873,7 @@
               "value": {
                 "title": "Value",
                 "description": "Value of the feature",
-                "type": "float"
+                "type": "number"
               },
               "title": {
                 "title": "Title",
