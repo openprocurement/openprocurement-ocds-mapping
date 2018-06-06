@@ -1585,6 +1585,12 @@
           "description": "Additional classification information about parties can be provided using partyDetail extensions that define particular properties and classification schemes. ",
           "title": "Details"
         },
+        "kind": {
+          "type": [
+              "string",
+              "null"
+          ]
+        },
         "address": {
           "$ref": "#/definitions/Address"
         },

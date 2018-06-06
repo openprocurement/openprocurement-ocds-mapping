@@ -87,16 +87,16 @@ mapping:
         transforms:
           - uniq
         $ref: "#/definitions/organizationReference"
+      numberOfTenderers:
+        src: "bids[].tenderers[]"
+        transforms:
+          - count
       procuringEntity:
         src: procuringEntity
         $ref: "#/definitions/organizationReference"
       documents:
         src: documents
         $ref: "#/definitions/document"
-      numberOfTenderers:
-        src: "bids[].tenderers[]"
-        transforms:
-          - count
 definitions:
   contactPoint:
     mapping:
@@ -170,7 +170,6 @@ definitions:
         $ref: "#/definitions/contactPoint"
       roles:
         src: roles
-
   value:
     mapping:
       amount:

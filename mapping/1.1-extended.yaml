@@ -273,6 +273,8 @@ definitions:
         $ref: "#/definitions/contactPoint"
       roles:
         src: roles
+      kind:
+        src: kind
   contactPoint:
     mapping:
       name:
