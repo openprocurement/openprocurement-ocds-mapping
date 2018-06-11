@@ -244,8 +244,16 @@
           "description": "Documents related to qualifications",
           "$ref": "#/definitions/Document"
         },
-        "relatedLot": {
-          "type": "string",
+        "relatedLots": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": [
+              "string"
+            ]
+          },
           "description": "Id of related lot",
           "title": "Related Lot"
         },
@@ -475,10 +483,18 @@
           "title": "Complaint period",
           "$ref": "#/definitions/Period"
         },
-        "lotID": {
-          "title": "Lot ID",
-          "description": "An identifier of the related lot.",
-          "type": "string"
+        "relatedLots": {
+          "title": "Array of related lots",
+          "description": "Identifiers of the related lots.",
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": [
+              "string"
+            ]
+          }
         },
         "qualified": {
           "title": "Qualified",

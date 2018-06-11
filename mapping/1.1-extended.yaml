@@ -347,7 +347,7 @@ definitions:
     mapping:
       id:
         src: id
-      lotID:
+      relatedLots:
         src: lotID
       title:
         src: title
@@ -444,7 +444,7 @@ definitions:
       documents:
         src: documents
         $ref: "#/definitions/document"
-      relatedLot:
+      relatedLots:
         src: relatedLot
       participationUrl:
         src: participationUrl
