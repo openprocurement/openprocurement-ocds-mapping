@@ -19,7 +19,7 @@ mapping:
   ocid:
     src: tenderID
     transforms:
-    - '"ocds-be6bcu"+.'
+    - '"ocds-be6bcu-"+.'
   date:
     src: dateModified
   language:
