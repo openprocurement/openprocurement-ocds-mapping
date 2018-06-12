@@ -33,6 +33,7 @@ mapping:
       - procuringEntity
       - "bids.details[].tenderers[]"
       - "awards[].suppliers[]"
+      - "contracts[].suppliers[]"
     $ref: "#/definitions/organization"
     transforms:
       - uniq
