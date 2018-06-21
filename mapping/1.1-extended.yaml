@@ -311,6 +311,16 @@ definitions:
     mapping:
       $options:
         $use-schema: True
+      status:
+        src: status
+        transforms:
+        - name: replace
+          args:
+            draft: pending
+            active: valid
+            invalid: disqualified
+            'invalid.pre-qualification': disqualified
+            deleted: withdraw
       tenderers:
         src: tenderers
         $ref: "#/definitions/organizationReference"
