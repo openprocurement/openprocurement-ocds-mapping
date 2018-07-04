@@ -28,8 +28,7 @@ mapping:
     src: language
     default: uk
   initiationType:
-    default:
-      - tender
+    default: tender
   parties:
     src:
       - procuringEntity
