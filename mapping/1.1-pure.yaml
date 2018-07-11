@@ -1,16 +1,7 @@
 transforms:
-  - name: initialize
-    args:
-      path: bids
-      value: []
-  - name: initialize
-    args:
-      path: awards
-      value: []
-  - name: initialize 
-    args:
-      path: contracts 
-      value: []
+  - ". as $data | $data.bids = if $data.bids then $data.bids else [] end"
+  - ". as $data | $data.awards = if $data.awards then $data.awards else [] end"
+  - ". as $data | $data.contracts = if $data.contracts then $data.contracts else [] end"
   - ". as $data|.items as $items | $data.awards=(.awards | map(. as $award | $award.items = if $data.lots then $items|map(select(.relatedLot == $award.lotID)) else $items end))"
   - "if .procuringEntity then .procuringEntity.roles = \"procuringEntity\" else . end"
   - "if .bids then .bids = (.bids | map(if .tenderers then .tenderers = (.tenderers | map(.roles = \"tenderer\")) else . end)) else . end"
