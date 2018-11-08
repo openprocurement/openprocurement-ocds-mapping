@@ -34,7 +34,7 @@ mapping:
       - "awards[].suppliers[]"
     $ref: "#/definitions/organization"
     transforms:
-      - uniq
+      - uniq_roles
   buyer:
     src: procuringEntity
     $ref: "#/definitions/organizationReference"
@@ -143,15 +143,45 @@ mapping:
 definitions:
   enquiry:
     mapping:
-      $options:
-        $use-schema: True
+      id:
+        src: id
+      status:
+        src: status
+      date:
+        src: date
+      author:
+        src: author
+        $ref: "#/definitions/organization"        
+      title:
+        src: title
+      description:
+        src: description
+      anwser:
+        src: answer
+      dateAnswered:
+        src: dateAnswered
+      relatedItem:
+        src: relatedItem
+      relatedLot:
+        src: relatedLot
   lot:
     mapping:
-      $options:
-        $use-schema: True
+      id:
+        src: id
+      status:
+        src: status
+      title:
+        src: title
+      description:
+        src: description
+      value:
+        src: value
+        $ref: "#/definitions/value"        
       guarantee:
         src: guarantee
         $ref: "#/definitions/value"
+      pendingCancellation:
+        src: pendingCancellation
   parameter:
     mapping:
       code: 
@@ -182,6 +212,8 @@ definitions:
         src: name
       id:
         src: identifier.id
+        transforms:
+          - '"UA-EDR-"+.'
   address:
     mapping:
       $options:
@@ -190,6 +222,10 @@ definitions:
     mapping:
       $options:
         $use-schema: True
+      id:
+        src: identifier.id
+        transforms:
+          - '"UA-EDR-"+.'          
       identifier: 
          src: identifier
          $ref: "#/definitions/identifier"
@@ -278,9 +314,6 @@ definitions:
       value:
         src: value
         $ref: "#/definitions/value"
-      items:
-        src: items
-        $ref: "#/definitions/item"
       documents:
         src: documents
         $ref: "#/definitions/document"
@@ -306,11 +339,13 @@ definitions:
         transforms:
         - name: replace
           args:
-            draft: pending
-            active: valid
-            invalid: disqualified
-            'invalid.pre-qualification': disqualified
-            deleted: withdraw
+            map:
+              draft: pending
+              active: valid
+              invalid: disqualified
+              'invalid.pre-qualification': disqualified
+              deleted: withdraw
+            default: valid
       tenderers:
         src: tenderers
         $ref: "#/definitions/organizationReference"
