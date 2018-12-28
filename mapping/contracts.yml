@@ -1,0 +1,159 @@
+transforms:
+  - '. as $data | $data.suppliers = ($data.suppliers | map(. as $supplier | $supplier.roles=["supplier"]))'
+  - '{"contracts": [.], "tenderID": .contractID|split("-")[:-1]|join("-"), "dateModified": .dateModified, "id": .id, "procuringEntity": .procuringEntity}'
+  - '. as $data | $data.procuringEntity.roles = ["procuringEntity", "buyer"]'
+
+mapping:
+  ocid:
+    src: tenderID
+    transforms:
+    - '"ocds-be6bcu-"+.'
+  date:
+    src: dateModified
+  id:
+    src: id
+  language:
+    src: language
+    default: uk
+  initiationType:
+    default: tender
+  parties:
+    src:
+      - procuringEntity
+      - "contracts[].suppliers[]"
+    $ref: "#/definitions/organization"
+    transforms:
+      - uniq_roles
+  buyer:
+    src: procuringEntity
+    $ref: "#/definitions/organizationReference"
+
+  contracts:
+    src: contracts
+    $ref: "#/definitions/contract"
+
+
+definitions:
+  document:
+    mapping:
+      $options:
+        $use-schema: True
+      documentScope:
+        src: documentOf
+  period:
+    mapping:
+      $options:
+        $use-schema: True
+  organizationReference:
+    mapping:
+      name:
+        src: name
+      id:
+        src: identifier.id
+        transforms:
+          - '"UA-EDR-"+.'
+  address:
+    mapping:
+      $options:
+        $use-schema: True
+  organization:
+    mapping:
+      $options:
+        $use-schema: True
+      id:
+        src: identifier.id
+        transforms:
+          - '"UA-EDR-"+.'
+      roles:
+        src: roles
+      identifier: 
+         src: identifier
+         $ref: "#/definitions/identifier"
+      additionalIdentifiers: 
+        src: additionalIdentifiers
+        $ref: "#/definitions/identifier"
+      address:
+        src: address
+        $ref: "#/definitions/address"
+      contactPoint:
+        src: contactPoint
+        $ref: "#/definitions/contactPoint"
+      additionalContactPoints:
+        src: additionalContactPoints
+        $ref: "#/definitions/contactPoint"
+  contactPoint:
+    mapping:
+      $options:
+        $use-schema: True
+  value:
+    mapping:
+      $options:
+        $use-schema: True
+  identifier:
+    mapping:
+      $options:
+        $use-schema: True
+  unit:
+    mapping:
+      $options:
+        $use-schema: True
+  item:
+    mapping:
+      $options:
+        $use-schema: True
+      classification:
+        src: classification
+        $ref: "#/definitions/identifier"
+      additionalClassifications:
+        src: additionalClassifications
+        $ref: "#/definitions/identifier"
+      unit:
+        src: unit
+        $ref: "#/definitions/unit"
+      deliveryAddress:
+        src: deliveryAddress
+        $ref: "#/definitions/address"
+      deliveryDate:
+        src: deliveryDate
+        $ref: "#/definitions/period"
+      deliveryLocation:
+        src: deliverylocation
+        $ref: "#/definitions/location"
+
+  contract:
+    mapping:
+      $options:
+        $use-schema: True
+      period:
+        src: period
+        $ref: "#/definitions/period"
+      value:
+        src: value
+        $ref: "#/definitions/value"
+      items:
+        src: items
+        $ref: "#/definitions/item"
+      documents:
+        src: documents
+        $ref: "#/definitions/document"
+      suppliers:
+        src: suppliers
+        $ref: "#/definitions/organizationReference"
+  location:
+    mapping:
+      geometry:
+        mapping:
+          coordinates:
+            src:
+              - latitude
+              - longtitude # order???
+  shortlistedFirms:
+    mapping:
+      lots:
+        src: lots
+        $src: "#/definitions/lot"
+      identifier:
+        src: identifier
+        $src: "#/definitions/identifier"
+      name:
+        src: name
