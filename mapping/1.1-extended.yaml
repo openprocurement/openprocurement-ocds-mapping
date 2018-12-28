@@ -5,7 +5,7 @@ transforms:
   - ". as $data |.items as $items | $data.awards=(.awards? | map(. as $award | $award.items = if $data.lots then $items|map(select(.relatedLot == $award.lotID)) else $items end))"
   - '. as $data | if $data.auctionPeriod then $data.auctions = (if $data.lots then $data.lots | map({"url": .auctionUrl, "minimalStep": .minimalStep, "period": .auctionPeriod, "relatedLot": .id}) else [{"url": $data.auctionUrl, "minimalStep": $data.minimalStep, "period": $data.auctionPeriod}] end) else $data end'
   - '. as $data | if $data.bids then $data.bids = (if $data.lots then {"details": ([.bids as $bids| $bids | .[] as $bid| $bid | .lotValues[]? as $value | $value + $bid|del(.lotValues)])} else {"details": $data.bids} end) else $data end'
-  - "if .procuringEntity then .procuringEntity.roles = \"procuringEntity\" else . end"
+  - 'if .procuringEntity then .procuringEntity.roles = ["procuringEntity", "buyer"] else . end'
   - "if .bids then .bids.details = (.bids.details | map(if .tenderers then .tenderers = (.tenderers | map(.roles = \"tenderer\")) else . end)) else . end"
   - "if .awards then .awards = (.awards | map(if .suppliers then .suppliers = (.suppliers | map(.roles = \"supplier\")) else . end)) else . end"
   - 'if .cancellations and (.cancellations | any(.cancellationOf == "tender")) then .pendingCancellation = true else . end'
