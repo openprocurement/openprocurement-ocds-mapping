@@ -140,6 +140,11 @@ mapping:
       lots:
         src: lots
         $ref: "#/definitions/lot"
+      tenderers:
+        src: "bids[].tenderers[]"
+        transforms:
+          - uniq
+        $ref: "#/definitions/organizationReference"
 definitions:
   enquiry:
     mapping:
