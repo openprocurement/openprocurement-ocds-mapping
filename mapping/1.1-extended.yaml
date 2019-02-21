@@ -216,9 +216,9 @@ definitions:
       name:
         src: name
       id:
-        src: identifier.id
+        src: identifier
         transforms:
-          - '"UA-EDR-"+.'
+          - '.scheme+"-"+.id'
   address:
     mapping:
       $options:
@@ -228,9 +228,9 @@ definitions:
       $options:
         $use-schema: True
       id:
-        src: identifier.id
+        src: identifier
         transforms:
-          - '"UA-EDR-"+.'          
+          - '.scheme+"-"+.id'
       identifier: 
          src: identifier
          $ref: "#/definitions/identifier"
