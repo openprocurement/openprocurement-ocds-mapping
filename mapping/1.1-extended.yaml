@@ -260,8 +260,18 @@ definitions:
         $use-schema: True
   unit:
     mapping:
-      $options:
-        $use-schema: True
+      id:
+        src: code
+      name:
+        src: name
+      value:
+        src: value
+        $ref: "#/definitions/value"
+      uri:
+        src: uri
+      scheme:
+        src: scheme
+
   item:
     mapping:
       $options:
